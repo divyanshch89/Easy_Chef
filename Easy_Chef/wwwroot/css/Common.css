@@ -1,3 +1,14 @@
 ﻿.--padding32topbottom {
     padding: 32px 0;
 }
+.--margintop16 {
+    margin-top: 16px;
+}
+.h--serif{
+    font-family:Nexabook, Rockwell, Georgia, serif;
+    font-weight:300;
+    font-size:1.2em;
+}
+.text--body{
+    color:#302e21 !important;
+}
