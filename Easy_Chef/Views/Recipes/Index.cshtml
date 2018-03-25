@@ -1,6 +1,114 @@
 ﻿
-@{
-    ViewBag.Title = "Recipes";
-}
+<div class="container recipedetail --margintop16">
+    <article class="l--max850">
+        <header>
+            <div>
+                <h1 class="h--serif">Parisian Bistro Steak</h1>
+                <h2 class="h--serif no--lineheight shortdescription">with dauphinoise potatoes and green beans</h2>
+            </div>
+            <div class="greenbar"></div>
+            <span class="text-muted price">$9.95 per serving</span>
+        </header>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="list-unstyled">
+                    <li>Prep & Cook Time: 45-55 min</li>
+                    <li>Difficulty Level: Intermediate</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-unstyled">
+                    <li>Cook within: 6 days</li>
+                    <li>
+                        Spicy Level: Not spicy
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline list-unstyled">
+                    <li class="list-inline-item"><a href="#" class="fa fa-facebook"></a></li>
+                    <li class="list-inline-item"><a href="#" class="fa fa-twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+        <section class="recipedescmain --margintop16">
+            <figure class="mainimage">
+                <img src="~/images/recipe/1_detail_1.jpg" />
+            </figure>
+            <section class="--margintop16">
+                <div class="row">
+                    <div class="col-md-2">
+                        <figure class="chefimage">
+                            <img src="~/images/recipe/1_detail_2.jpg" />
+                            <figcaption class="h--serif">Chef John Doe</figcaption>
+                            <div class="group">
+                                <div class="greenbar"></div>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row recipedesc">
+                            <p>Imagine strolling the streets of Paris, wending your way between beautiful buildings. Such a memorable day deserves a traditional French dinner. This meal is reminiscent of what you'd receive if you claimed a cozy table in a Parisian bistro: a tender steak in a rich, velvety sauce next to a creamy potato gratin.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="packagedetail">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3 class="h--serif text-positive recipecontentheader">
+                            Your recipe Box
+                            <span class="text-muted text-italic"><em>(serves 2)</em></span>
+                        </h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li>1 Shallot</li>
+                                    <li>8 oz. Green Beans</li>
+                                    <li>8 oz. Green Beans</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li>1 Shallot1</li>
+                                    <li>8 oz. Green Beans1</li>
+                                    <li>8 oz. Green Beans1</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 box--tinted mealnutrition">
+                        <div class="--padding32">
+                            <ul class="list-unstyled">
+                                <li class="--marginbottom16">
+                                    <h4 class="size--xs">Nutrition<span class="text-muted text-thin size-mini"><em> (per serving)</em></span></h4>
+                                </li>
+                                <li class="--marginbottom16">
+                                    <div class="float-left">Calories</div>
+                                    <strong class="float-right">660</strong>
+                                </li>
+                                <li class="--marginbottom16">
+                                    <div class="float-left">Carbohydrates</div>
+                                    <strong class="float-right">49g</strong>
+                                </li>
+                                <li class="--marginbottom16">
+                                    <div class="float-left">Carbohydrates</div>
+                                    <strong class="float-right">49g</strong>
+                                </li>
+                                <li class="--marginbottom16">
+                                    <div class="float-left">Carbohydrates</div>
+                                    <strong class="float-right">49g</strong>
+                                </li>
+                            </ul>
 
-<h2>This is recipe detail page: Recipe# @ViewBag.Message</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <div class="row justify-content-center --padding32topbottom">
+            <a class="btn btn-primary addtocart" onclick="addToCart()" href="#">Add to Cart</a>
+        </div>
+    </article>
+</div>

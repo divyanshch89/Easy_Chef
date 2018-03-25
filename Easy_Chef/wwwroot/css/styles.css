@@ -26,6 +26,23 @@ body {
     text-rendering: optimizeLegibility;
 }
 
+strong, b {
+    font-weight: 600;
+}
+
+*, *:after, *:before {
+    box-sizing: inherit;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern";
+    font-variant-ligatures: common-ligatures;
+}
+
+.content ::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
 a {
     text-decoration: none;
     -webkit-transition: all 0.3s;
@@ -213,6 +230,84 @@ a {
     fill: #cdd83f;
 }
 
+/*Recipe detail page*/
+
+
+.recipedetail figure img {
+    width: 100%;
+}
+
+.recipedesc {
+    padding: 32px;
+}
+
+.shortdescription {
+    font-size: 19px;
+}
+
+.group {
+    vertical-align: baseline;
+}
+
+.chefimage figcaption {
+    font-size: 14px;
+}
+
+.recipecontentheader {
+    border-width: 0;
+    border-bottom-width: 1px;
+    margin-bottom: 16px !important;
+    padding-bottom: 16px !important;
+    border-color: #a9a9a9;
+}
+
+.greenbar {
+    margin-bottom: 16px !important;
+    border-width: 0;
+    border-bottom-width: 4px;
+    margin: 0 auto;
+    max-width: 50px;
+    width: 100%;
+    float: left;
+    border-color: #b7bf10;
+    border-style: solid;
+}
+
+.mealnutrition li:not(:first-child)::before {
+    content: "";
+    border-bottom: 1px dotted #c0c2b5;
+    margin: 8px;
+    display:inline-block;
+}
+.addtocart{
+    background-color:#319b42 !important;
+    color:#fff;
+    text-transform:none;
+    text-decoration:none;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 16px;
+    width: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
 /*Footer*/
 .footer img {
     width: 60px;
