@@ -1,10 +1,23 @@
-﻿.--padding32topbottom {
+﻿.hide{
+    display:none;
+}
+.show{
+    display:block;
+}
+.--padding32topbottom {
     padding: 32px 0;
 }
 
 .--margintop16 {
     margin-top: 16px;
 }
+.--margintop8{
+    margin-top:8px!important;
+}
+.--marginbottom8 {
+    margin-bottom: 8px !important;
+}
+
 
 .--marginbottom16 {
     margin-bottom: 16px !important;
@@ -55,4 +68,7 @@
 }
 .size-mini{
     font-size:17px;
+}
+.size-lg{
+    font-size:38px;
 }

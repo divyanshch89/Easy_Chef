@@ -7,5 +7,10 @@ $(function () {
 });
 
 function addToCart() {
-    alert("Todo:add to cart");
+    //alert("Todo:add to cart");
+    var currentCount = parseInt($(".badge").text());
+    $(".badge").text(currentCount + 1);
+    $(".badge").addClass("active");
+    $(".badge").removeClass("hide");
+    $(".cart").addClass("active");
 }
