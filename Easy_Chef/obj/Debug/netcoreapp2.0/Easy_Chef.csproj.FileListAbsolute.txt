@@ -1,0 +1,11 @@
+D:\VSProject\Easy_Chef\Easy_Chef\bin\Debug\netcoreapp2.0\Easy_Chef.deps.json
+D:\VSProject\Easy_Chef\Easy_Chef\bin\Debug\netcoreapp2.0\Easy_Chef.runtimeconfig.json
+D:\VSProject\Easy_Chef\Easy_Chef\bin\Debug\netcoreapp2.0\Easy_Chef.runtimeconfig.dev.json
+D:\VSProject\Easy_Chef\Easy_Chef\bin\Debug\netcoreapp2.0\Easy_Chef.dll
+D:\VSProject\Easy_Chef\Easy_Chef\bin\Debug\netcoreapp2.0\Easy_Chef.pdb
+D:\VSProject\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.csprojResolveAssemblyReference.cache
+D:\VSProject\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.csproj.CoreCompileInputs.cache
+D:\VSProject\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.AssemblyInfoInputs.cache
+D:\VSProject\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.AssemblyInfo.cs
+D:\VSProject\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.dll
+D:\VSProject\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.pdb
