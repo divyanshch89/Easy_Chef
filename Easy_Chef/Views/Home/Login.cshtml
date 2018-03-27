@@ -1,1 +1,34 @@
 ﻿<h2> This is login page</h2>
+@*<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>*@
+<script>
+    var finished_rendering = function () {
+        console.log("finished rendering plugins");
+        var spinner = document.getElementById("spinner");
+        spinner.removeAttribute("style");
+        spinner.removeChild(spinner.childNodes[0]);
+    }
+    //  FB.Event.subscribe('xfbml.render', finished_rendering);
+</script>
+<div id="spinner"
+     style="
+        background: #4267b2;
+        border-radius: 5px;
+        color: white;
+        height: 40px;
+        text-align: center;
+        width: 250px;">
+    <div class="fb-login-button hide" onlogin="EasyChef.Facebook.init()" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+</div>
+<!-- Display login status -->
+<div id="status"></div>
+
+
+<!-- Display user profile data -->
+<div id="userData"></div>
+<script>
+    $(document).ready(function () {
+        $("#fb-root").bind("facebook:init", function () {
+            EasyChef.Facebook.init();
+        });
+    });
+</script>

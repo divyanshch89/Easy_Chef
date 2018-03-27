@@ -11,6 +11,8 @@ var EasyChef = EasyChef || {
     init: function () {
         //position the footer as per screen height
         EasyChef.Utility.positionFooter();
+        //init fb authentication process
+        // EasyChef.Facebook.init();
     },
     Cart: {
         addItem: function () {
@@ -19,6 +21,63 @@ var EasyChef = EasyChef || {
             $(".badge").addClass("active");
             $(".badge").removeClass("hide");
             $(".cart").addClass("active");
+        }
+    },
+    Facebook: {
+        init: function () {
+            // Check whether the user already logged in
+            FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+                    //display user data
+                    console.log("Logged In!")
+                    EasyChef.Facebook.getFbUserData();
+
+                }
+                else {
+                    //show login button
+                    console.log("User is not logged in.");
+                    $("#adminnav").addClass("hide");
+                    if (EasyChef.Utility.getPageName() == "login") {
+                        $("#userData").addClass("hide");
+
+                        $("#status").addClass("hide");
+                    }
+                }
+            });
+        },
+        login: function () {
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    // Get and display the user profile data
+                    getFbUserData();
+                } else {
+                    document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
+                }
+            }, { scope: 'public_profile,email' });
+        },
+        getFbUserData: function () {
+            FB.api('/me', { locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture' },
+                function (response) {
+                    //document.getElementById('fbLink').setAttribute("onclick", "fbLogout()");
+                    //document.getElementById('fbLink').innerHTML = 'Logout from Facebook';
+                    console.log("Fetching user data");
+
+                    $("#adminnav").removeClass("hide");
+                    if (EasyChef.Utility.getPageName() == "login") {
+                        $("#status").removeClass("hide");
+                        $("#userData").removeClass("hide");
+                        document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
+                        document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> ' + response.id + '</p><p><b>Name:</b> ' + response.first_name + ' ' + response.last_name + '</p><p><b>Email:</b> ' + response.email + '</p><p><b>Gender:</b> ' + response.gender + '</p><p><b>Locale:</b> ' + response.locale + '</p><p><b>Picture:</b> <img src="' + response.picture.data.url + '"/></p><p><b>FB Profile:</b> <a target="_blank" href="' + response.link + '">click to view profile</a></p>';
+                    }
+                });
+        },
+        logout: function () {
+            FB.logout(function () {
+                document.getElementById('fbLink').setAttribute("onclick", "fbLogin()");
+                document.getElementById('fbLink').innerHTML = '<img src="fblogin.png"/>';
+                document.getElementById('userData').innerHTML = '';
+                document.getElementById('status').innerHTML = 'You have successfully logout from Facebook.';
+            });
         }
     },
     Utility:
