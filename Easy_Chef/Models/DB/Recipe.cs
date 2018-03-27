@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Easy_Chef.Models.DB
+﻿namespace Easy_Chef.Models.DB
 {
     public partial class Recipe
     {

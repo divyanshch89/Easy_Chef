@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="/js/main.js"></script>
     <link rel="stylesheet" href="/css/sticky-footer.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/Common.css">
+    <!-- Latest compiled JavaScript -->
+    <script src="/js/main.js"></script>
 
 </head>
 <body class="">
@@ -56,6 +56,9 @@
                     <a class="nav-link" href="/login"><span>Login</span></a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/admin/recipe"><span>Admin</span></a>
+                </li>
+                <li class="nav-item">
                     <div class="icon-wrapper">
                         <a class="nav-link" href="/cart"><i class="cart fa fa-shopping-cart"></i></a>
                         <span class="badge hide">0</span>
@@ -69,7 +72,7 @@
         @RenderBody()
     </div>
 
-    <footer class="footer">
+    <footer class="footer hide">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-2 footerlogo">
@@ -100,8 +103,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <span class="text-muted">&copy;@DateTime.Now.Year Easy Chef. Designed and Developed by Team#04 for ISTM 631 601</span>
+            <div class="row">
+                <span class="text-muted mx-auto">&copy;@DateTime.Now.Year Easy Chef. Designed and Developed by Team#04 for ISTM 631 601</span>
             </div>
         </div>
     </footer>

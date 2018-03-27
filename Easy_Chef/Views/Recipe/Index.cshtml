@@ -4,17 +4,17 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container table-responsive">
-    <h2>Index</h2>
-
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-    <table class="table">
+<div class="container table-responsive --margintop16">
+    
+    <p><a class="btn btn-primary" asp-action="Create">Create New Recipe</a></p>
+    <table class="table table-hover --margintop16">
         <thead>
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.RecipeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cuisine)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.PrepTime)
@@ -28,39 +28,38 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Price)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IsVeg)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Image1)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Image2)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Image3)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CookLimit)
-                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.IsVeg)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image3)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CookLimit)
+                    </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.ShortDescription)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LongDescription)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.NutritionValue)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.BoxContent)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ChefName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cuisine)
-                </th>
+                <th>Actions</th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.LongDescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NutritionValue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BoxContent)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ChefName)
+                    </th>*@
+
                 <th></th>
             </tr>
         </thead>
@@ -70,6 +69,9 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.RecipeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cuisine.CuisineName)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.PrepTime)
@@ -83,43 +85,41 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IsVeg)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Image1)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Image2)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Image3)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CookLimit)
-                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.IsVeg)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Image1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Image2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Image3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CookLimit)
+                        </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.ShortDescription)
                     </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.LongDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NutritionValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BoxContent)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ChefName)
+                        </td>*@
+
                     <td>
-                        @Html.DisplayFor(modelItem => item.LongDescription)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NutritionValue)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BoxContent)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ChefName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cuisine.CuisineName)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.RecipeId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.RecipeId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.RecipeId">Delete</a>
+                        <a style="margin-right:5px;" asp-action="Edit" asp-route-id="@item.RecipeId"><i class="fa fa-edit"></i></a>
+                        <a style="margin-right:5px;" asp-action="Details" asp-route-id="@item.RecipeId"><i class="fa fa-info"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.RecipeId"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             }
