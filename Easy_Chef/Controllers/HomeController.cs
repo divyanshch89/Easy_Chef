@@ -5,11 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Easy_Chef.Models;
+using Easy_Chef.Models.DB;
 
 namespace Easy_Chef.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DB_A383F2_easychefContext _context;
         public IActionResult Index()
         {
             return View();

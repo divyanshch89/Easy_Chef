@@ -1,37 +1,37 @@
-﻿
+﻿@model Easy_Chef.Models.DB.Recipe
 <div class="container recipedetail --margintop16">
     <article class="l--max850">
         <header>
             <div>
-                <h1 class="h--serif size-lg">Parisian Bistro Steak</h1>
-                <h2 class="h--serif --marginbottom16 --margintop8 shortdescription">with dauphinoise potatoes and green beans</h2>
+                <h1 class="h--serif size-lg">@Html.DisplayFor(model => model.RecipeName)</h1>
+                <h2 class="h--serif --marginbottom16 --margintop8 shortdescription">@Html.DisplayFor(model => model.ShortDescription)</h2>
             </div>
             @*<div class="greenbar"></div>*@
-            <span class="text-muted price">$9.95 per serving</span>
+            <span class="text-muted price">$@Html.DisplayFor(model=>model.Price) per serving</span>
         </header>
         <br />
         <div class="row">
             <div class="col-md-4">
                 <ul class="list-unstyled">
-                    <li class="--marginbottom8"><span class="text-muted">Prep & Cook Time:</span> 45-55 min</li>
-                    <li class="--marginbottom8"><span class="text-muted">Difficulty Level:</span> Intermediate</li>
+                    <li class="--marginbottom8"><span class="text-muted">Prep & Cook Time:</span> @Html.DisplayFor(model => model.PrepTime)</li>
+                    <li class="--marginbottom8"><span class="text-muted">Difficulty Level:</span> @Html.DisplayFor(model => model.DifficultyLevel)</li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <ul class="list-unstyled">
-                    <li class="--marginbottom8"><span class="text-muted">Cook within:</span> 6 days</li>
+                    <li class="--marginbottom8"><span class="text-muted">Cook within:</span> @Html.DisplayFor(model => model.CookLimit)</li>
                     <li class="--marginbottom8">
-                        <span class="text-muted">Spicy Level:</span> Not spicy
+                        <span class="text-muted">Spicy Level:</span> @Html.DisplayFor(model => model.SpiceLevel)
                     </li>
                 </ul>
             </div>
             <div class="col-md-4">
                 @*<ul class="list-inline list-unstyled">
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="fa fa-twitter fa-lg"></a></li>
-                    <li class="list-inline-item"><a href="#" class="fa fa-google fa-lg"></a></li>
-                   
-                </ul>*@
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="fa fa-twitter fa-lg"></a></li>
+                        <li class="list-inline-item"><a href="#" class="fa fa-google fa-lg"></a></li>
+
+                    </ul>*@
             </div>
         </div>
         <section class="recipedescmain --margintop16">
@@ -43,7 +43,7 @@
                     <div class="col-md-2">
                         <figure class="chefimage">
                             <img src="~/images/recipe/1_detail_2.jpg" />
-                            <figcaption class="h--serif">Chef John Doe</figcaption>
+                            <figcaption class="h--serif">@Html.DisplayFor(model => model.ChefName)</figcaption>
                             <div class="group">
                                 <div class="greenbar"></div>
                             </div>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-md-10">
                         <div class="row recipedesc">
-                            <p>Imagine strolling the streets of Paris, wending your way between beautiful buildings. Such a memorable day deserves a traditional French dinner. This meal is reminiscent of what you'd receive if you claimed a cozy table in a Parisian bistro: a tender steak in a rich, velvety sauce next to a creamy potato gratin.</p>
+                            <p>@Html.DisplayFor(model => model.LongDescription)</p>
                         </div>
                     </div>
                 </div>
