@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor httpContextaccessor
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -8,7 +10,11 @@
     <meta content="True" name="HandheldFriendly">
     <meta content="320" name="MobileOptimized">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="Home Chef" name="application-name">
+    <meta content="Easy Chef" name="Easy Chef">
+    <meta property="og:url" content="http://istm631-001-site1.gtempurl.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Easy Chef: Cooking made easy" />
+    <meta property="og:description" content="This will contain description of Easy chef" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Muli:300,400,600,700" media="all">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -73,13 +79,30 @@
             </ul>
         </div>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/login"><span>Login</span></a>
-                </li>
-                <li id="adminnav" class="nav-item hide">
-                    <a class="nav-link" href="/admin/recipe"><span>Admin</span></a>
-                </li>
+            <ul id="rightnav" class="navbar-nav ml-auto">
+                @{if (httpContextaccessor.HttpContext.Request.Cookies["authentication"] != null)
+                    {
+                        <li class="nav-item login">
+                            <a class="nav-link" onclick="EasyChef.Facebook.logout()" href="#"><span>Logout</span></a>
+                        </li>
+
+                        if (httpContextaccessor.HttpContext.Request.Cookies["authentication"].ToString().Contains("Admin"))
+                        {
+                            <li id="adminnav" class="nav-item">
+                                <a class="nav-link" href="/admin/recipe"><span>Admin</span></a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="nav-item login">
+                            <a class="nav-link" href="/login"><span>Login</span></a>
+                        </li>
+
+
+                    }
+                }
+
                 <li class="nav-item">
                     <div class="icon-wrapper">
                         <a class="nav-link" href="/cart"><i class="cart fa fa-shopping-cart"></i></a>
@@ -93,7 +116,6 @@
     <div class="content">
         @RenderBody()
     </div>
-
     <footer class="footer hide">
         <div class="container-fluid">
             <div class="row">
@@ -134,7 +156,7 @@
     <script>
         $(document).ready(function () {
             $("#fb-root").bind("facebook:init", function () {
-                EasyChef.Facebook.init();
+                //  EasyChef.Facebook.init();
             });
         });
     </script>

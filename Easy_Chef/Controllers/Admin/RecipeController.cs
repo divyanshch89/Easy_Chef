@@ -1,21 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Easy_Chef.Models.DB;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Easy_Chef.Models.DB;
+using Newtonsoft.Json.Linq;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Easy_Chef.Controllers
 {
     public class RecipeController : Controller
     {
         private readonly DB_A383F2_easychefContext _context;
-
-        public RecipeController(DB_A383F2_easychefContext context)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        dynamic authenticationCookie = null;
+        public RecipeController(DB_A383F2_easychefContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
+            if (_httpContextAccessor.HttpContext.Request.Cookies["authentication"] != null)
+            {
+                authenticationCookie = JObject.Parse(_httpContextAccessor.HttpContext.Request.Cookies["authentication"]);
+                if (authenticationCookie.UserRole.Value != "Admin")
+                {
+                    _httpContextAccessor.HttpContext.Response.Redirect("/notauthorize");
+                }
+            }
+            else
+            {
+                _httpContextAccessor.HttpContext.Response.Redirect("/notauthorize");
+            }
         }
 
         // GET: Recipe

@@ -7,7 +7,11 @@ Email: team4istm631@gmail.com
 
 var EasyChef = EasyChef || {
 
-    globalVars: {},
+    globalVars: {
+        getUserDataUrl: "/api/Users/{0}",
+        createNewUserUrl: "/api/Users",
+        authenticationCookieName: "authentication"
+    },
     init: function () {
         //position the footer as per screen height
         EasyChef.Utility.positionFooter();
@@ -31,12 +35,14 @@ var EasyChef = EasyChef || {
                     //display user data
                     console.log("Logged In!")
                     EasyChef.Facebook.getFbUserData();
-
                 }
                 else {
                     //show login button
                     console.log("User is not logged in.");
-                    $("#adminnav").addClass("hide");
+                    //destroy the authentication cookie
+                    if (EasyChef.Utility.readCookie(EasyChef.globalVars.authenticationCookieName) != null) {
+                        EasyChef.Utility.deleteCookie(EasyChef.globalVars.authenticationCookieName);
+                    }
                     if (EasyChef.Utility.getPageName() == "login") {
                         $("#userData").addClass("hide");
 
@@ -58,11 +64,14 @@ var EasyChef = EasyChef || {
         getFbUserData: function () {
             FB.api('/me', { locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture' },
                 function (response) {
-                    //document.getElementById('fbLink').setAttribute("onclick", "fbLogout()");
-                    //document.getElementById('fbLink').innerHTML = 'Logout from Facebook';
                     console.log("Fetching user data");
-
-                    $("#adminnav").removeClass("hide");
+                    //change button to log out
+                    $(".login").remove();
+                    //insert new logout nav
+                    var newLogout = $("<li class='nav-item login'><a class='nav-link' onclick='EasyChef.Facebook.logout()' href='#'><span>Logout</span></a></li >");
+                    $("#rightnav").prepend(newLogout);
+                    //manage user authorization
+                    EasyChef.Utility.checkAuthorization(response);
                     if (EasyChef.Utility.getPageName() == "login") {
                         $("#status").removeClass("hide");
                         $("#userData").removeClass("hide");
@@ -72,16 +81,37 @@ var EasyChef = EasyChef || {
                 });
         },
         logout: function () {
-            FB.logout(function () {
-                document.getElementById('fbLink').setAttribute("onclick", "fbLogin()");
-                document.getElementById('fbLink').innerHTML = '<img src="fblogin.png"/>';
-                document.getElementById('userData').innerHTML = '';
-                document.getElementById('status').innerHTML = 'You have successfully logout from Facebook.';
+            FB.getLoginStatus(function (response) {
+                if (response.status == 'connected') {
+                    FB.logout(function (response) {
+                        console.log("User logged out!");
+                        $(".login a").prop("href", "/login");
+                        $(".login a").prop("onclick", null).off("click");
+                        $(".login span").text("Login");
+                        if ($("#adminnav")) {
+                            $("#adminnav").remove();
+                        }
+                        EasyChef.Facebook.init();
+                    });
+                }
             });
         }
     },
     Utility:
     {
+        makeAjax: function (url, verb, data, succescallback, errorcallback) {
+            $.ajax({
+                url: url,
+                data: data,
+                type: verb,
+                success: function (response) {
+                    succescallback(response);
+                },
+                error: function (err) {
+                    errorcallback(err);
+                }
+            });
+        },
         positionFooter: function () {
             var footerHeight = 0,
                 footerTop = 0,
@@ -148,6 +178,91 @@ var EasyChef = EasyChef || {
                 mm = '0' + mm;
             }
             return dd + '/' + mm + '/' + yyyy;
+        },
+        createCookie: function (name, value, days) {
+            var expires;
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toGMTString();
+            } else {
+                expires = "";
+            }
+            document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
+        },
+        readCookie: function (name) {
+            var nameEQ = encodeURIComponent(name) + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ')
+                    c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0)
+                    return decodeURIComponent(c.substring(nameEQ.length, c.length));
+            }
+            return null;
+        },
+        deleteCookie: function (name) {
+            EasyChef.Utility.createCookie(name, "", -1);
+        },
+        format: function (str, col) {
+            col = typeof col === 'object' ? col : Array.prototype.slice.call(arguments, 1);
+            return str.replace(/\{\{|\}\}|\{(\w+)\}/g, function (m, n) {
+                if (m == "{{") { return "{"; }
+                if (m == "}}") { return "}"; }
+                return col[n];
+            });
+        },
+        checkAuthorization: function (fbresponse) {
+            //check if cookie exist for user
+            if (this.readCookie(EasyChef.globalVars.authenticationCookieName) == null) {
+                //cookie don't exist
+                //check if the user exist in database and get his role
+                EasyChef.Utility.makeAjax(this.format(EasyChef.globalVars.getUserDataUrl, fbresponse.email), "GET", "", function (success) {
+                    //handle success
+                    //user exist
+                    //set username and role in a cookie
+                    var obj = new Object();
+                    obj.email = fbresponse.email;
+                    if (success == "") {
+                        //user not available
+                        //create user with fb response data
+                        //set obj role for cookie
+                        EasyChef.Utility.createNewUser(fbresponse);
+                        obj.UserRole = "User";
+                    }
+                    else {
+                        //user available in database
+                        obj.UserRole = success.roleName;
+                    }
+                    if (obj.UserRole == "Admin") {
+                        //create the admin nav if not available
+                        EasyChef.Utility.createAdminNav();
+                    }
+                    EasyChef.Utility.createCookie(EasyChef.globalVars.authenticationCookieName, EasyChef.Utility.createJSON(obj), 5);
+                    console.log(success);
+                }, function (err) {
+                    //handle error
+                    console.log(err);
+                })
+            }
+            else {
+                //if not then, check
+                //user exist in db ,if yes get its role
+                //create a cookie with users email and set the role
+            }
+        },
+        createJSON: function (obj) {
+            return JSON.stringify(obj);
+        },
+        createAdminNav: function () {
+            if ($("#adminnav").length == 0) {
+                var newElem = $("<li id='adminnav' class='nav-item'><a class='nav-link' href='/admin/recipe'><span>Admin</span></a></li>");
+                $("#rightnav li:eq(0)").after(newElem);
+            }
+        },
+        createNewUser: function () {
+
         }
     }
 };

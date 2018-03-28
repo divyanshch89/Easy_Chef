@@ -330,26 +330,9 @@ a {
     border-radius: 50%;
 }
 
-.fa:hover {
-    opacity: 0.7;
-    text-decoration: none;
+.recipedetail .share li {
+    padding: 2px;
 }
-
-.fa-facebook {
-    background: #3B5998;
-    color: white;
-}
-
-.fa-twitter {
-    background: #55ACEE;
-    color: white;
-}
-
-.fa-google {
-    background: #dd4b39;
-    color: white;
-}
-
 /*Cart*/
 .table > tbody > tr > td, .table > tfoot > tr > td {
     vertical-align: middle;
@@ -358,9 +341,11 @@ a {
 .editrecipe input:not([type=submit]), .createrecipe input:not([type=submit]) {
     margin-top: 8px;
 }
-.recipedetail dd, .deleterecipe dd{
+
+.recipedetail dd, .deleterecipe dd {
     margin: 8px 0;
-} 
+}
+
 @media screen and (max-width: 600px) {
     table #cart tbody td .form-control {
         width: 20%;

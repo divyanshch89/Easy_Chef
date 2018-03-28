@@ -11,7 +11,7 @@ namespace Easy_Chef.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly DB_A383F2_easychefContext _context;
+        //private readonly DB_A383F2_easychefContext _context;
         public IActionResult Index()
         {
             return View();
@@ -39,6 +39,11 @@ namespace Easy_Chef.Controllers
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
+
+            return View();
+        }
+        public IActionResult NotAuthorize()
+        {
 
             return View();
         }

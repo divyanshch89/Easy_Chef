@@ -169,7 +169,6 @@ namespace Easy_Chef.Models.DB
                 entity.HasOne(d => d.Payment)
                     .WithMany(p => p.User)
                     .HasForeignKey(d => d.PaymentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_User_Payment");
 
                 entity.HasOne(d => d.Role)
