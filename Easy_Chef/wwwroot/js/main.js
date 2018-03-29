@@ -264,6 +264,18 @@ var EasyChef = EasyChef || {
         },
         createNewUser: function () {
 
+        },
+        setNavActive: function (elem) {
+            //reset all nav active
+            $(".navbar li.active").removeClass("active");
+            if (elem == "") {
+                elem = EasyChef.Utility.getPageName();
+                $(".navbar ." + elem).addClass("active");
+            }
+            else
+                $(".navbar #" + elem).addClass("active");
+
+
         }
     }
 };

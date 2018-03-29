@@ -54,7 +54,6 @@
                 version: 'v2.12'
             });
             $('#fb-root').trigger('facebook:init');
-            // FB.AppEvents.logPageView();
         };
     </script>
     <nav class="navbar navbar-expand-md navbar-light">
@@ -64,16 +63,16 @@
         </button>
         <div class="collapse navbar-collapse dual-collapse2 w-100">
             <ul id="menu-main-menu" class="navbar-nav nav mr-auto ">
-                <li class="nav-item active">
+                <li id="homenav" class="nav-item">
                     <a class="nav-link" href="/">
                         <span> Home</span>
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li id="menunav" class="nav-item menu">
                     <a class="nav-link" href="/menu"><span>Our Menu</span></a>
                 </li>
-                <li class="nav-item">
+                <li id="aboutnav" class="nav-item about">
                     <a class="nav-link" href="/About"><span>About Us</span></a>
                 </li>
             </ul>
