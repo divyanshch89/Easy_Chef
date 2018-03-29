@@ -10,7 +10,8 @@ var EasyChef = EasyChef || {
     globalVars: {
         getUserDataUrl: "/api/Users/{0}",
         createNewUserUrl: "/api/Users",
-        authenticationCookieName: "authentication"
+        authenticationCookieName: "authentication",
+        welcomeMessage: "Howdy, {0}"
     },
     init: function () {
         //position the footer as per screen height
@@ -43,9 +44,9 @@ var EasyChef = EasyChef || {
                     if (EasyChef.Utility.readCookie(EasyChef.globalVars.authenticationCookieName) != null) {
                         EasyChef.Utility.deleteCookie(EasyChef.globalVars.authenticationCookieName);
                     }
+                    EasyChef.Utility.manageNavAfterLogout();
                     if (EasyChef.Utility.getPageName() == "login") {
                         $("#userData").addClass("hide");
-
                         $("#status").addClass("hide");
                     }
                 }
@@ -69,7 +70,9 @@ var EasyChef = EasyChef || {
                     $(".login").remove();
                     //insert new logout nav
                     var newLogout = $("<li class='nav-item login'><a class='nav-link' onclick='EasyChef.Facebook.logout()' href='#'><span>Logout</span></a></li >");
-                    $("#rightnav").prepend(newLogout);
+                    $("#rightnav li:first-child").after(newLogout);
+                    //create welcome message
+                    EasyChef.Utility.createWelcome(response.first_name);
                     //manage user authorization
                     EasyChef.Utility.checkAuthorization(response);
                     if (EasyChef.Utility.getPageName() == "login") {
@@ -85,14 +88,7 @@ var EasyChef = EasyChef || {
                 if (response.status == 'connected') {
                     FB.logout(function (response) {
                         console.log("User logged out!");
-                        $(".login a").prop("href", "/login");
-                        $(".login a").prop("onclick", null).off("click");
-                        $(".login span").text("Login");
-                        if ($("#adminnav")) {
-                            $("#adminnav").remove();
-                        }
-                        //delete the authorization cookie
-                        EasyChef.Facebook.init();
+                        EasyChef.Utility.manageNavAfterLogout();
                     });
                 }
             });
@@ -225,6 +221,7 @@ var EasyChef = EasyChef || {
                     //set username and role in a cookie
                     var obj = new Object();
                     obj.email = fbresponse.email;
+                    obj.first_name = fbresponse.first_name;
                     if (success == "") {
                         //user not available
                         //create user with fb response data
@@ -276,6 +273,25 @@ var EasyChef = EasyChef || {
                 $(".navbar #" + elem).addClass("active");
 
 
+        },
+        createWelcome: function (username) {
+            if ($(".userwelcome").length == 0) {
+                var message = "<li class='nav-item userwelcome'><a href='#'><span>" + EasyChef.Utility.format(EasyChef.globalVars.welcomeMessage, username) + "!</span></a></li>";
+                $("#rightnav").prepend(message);
+            }
+        },
+        manageNavAfterLogout: function () {
+            $(".login a").prop("href", "/login");
+            $(".login a").prop("onclick", null).off("click");
+            $(".login span").text("Login");
+            if ($("#adminnav")) {
+                $("#adminnav").remove();
+            }
+            if ($(".userwelcome")) {
+                $(".userwelcome").remove();
+            }
+            //delete the authorization cookie
+            EasyChef.Facebook.init();
         }
     }
 };

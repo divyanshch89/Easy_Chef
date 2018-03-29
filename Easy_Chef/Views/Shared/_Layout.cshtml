@@ -81,11 +81,15 @@
             <ul id="rightnav" class="navbar-nav ml-auto">
                 @{if (httpContextaccessor.HttpContext.Request.Cookies["authentication"] != null)
                     {
+                        dynamic cookieData = Newtonsoft.Json.JsonConvert.DeserializeObject(httpContextaccessor.HttpContext.Request.Cookies["authentication"]);
+                        <li class="nav-item userwelcome">
+                                <a href="#"><span>Howdy, @cookieData.first_name!</span></a>
+                            </li>
                         <li class="nav-item login">
                             <a class="nav-link" onclick="EasyChef.Facebook.logout()" href="#"><span>Logout</span></a>
                         </li>
 
-                        if (httpContextaccessor.HttpContext.Request.Cookies["authentication"].ToString().Contains("Admin"))
+                        if (cookieData.UserRole == "Admin")
                         {
                             <li id="adminnav" class="nav-item">
                                 <a class="nav-link" href="/admin/recipe"><span>Admin</span></a>

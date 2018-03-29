@@ -63,7 +63,12 @@ a {
     margin-bottom: 0px;
     z-index: 1000;
 }
-
+    .navbar #rightnav .userwelcome a {
+        cursor: default !important;
+    }
+     .navbar #rightnav .userwelcome a:hover >span{
+         box-shadow:none;
+     }
 .navbar-brand, .collapse {
     padding-bottom: 0px;
 }
