@@ -50,22 +50,20 @@
                 <img src="~/images/recipe/@Html.DisplayFor(model => model.Image2)" />
             </figure>
             <section class="--margintop16">
-                <div class="row">
-                    <div class="col-md-2">
-                        <figure class="chefimage">
-                            <img src="~/images/recipe/@Html.DisplayFor(model => model.Image3)" />
-                            <figcaption class="h--serif">@Html.DisplayFor(model => model.ChefName)</figcaption>
-                            <div class="group">
-                                <div class="greenbar"></div>
-                            </div>
-                        </figure>
+
+                <div>
+                    <p>@Html.DisplayFor(model => model.LongDescription)</p>
+
+                </div>
+                <div class="--margintop8 --marginbottom16">
+                    <div style="float:left;">
+                        <p class="text-muted" style="margin-right:5px">Created By:</p>
                     </div>
-                    <div class="col-md-10">
-                        <div class="row recipedesc">
-                            <p>@Html.DisplayFor(model => model.LongDescription)</p>
-                        </div>
+                    <div style="font-weight:400">
+                        <p>@Html.DisplayFor(model => model.ChefName)</p>
                     </div>
                 </div>
+
             </section>
             <section class="packagedetail">
                 <div class="row">

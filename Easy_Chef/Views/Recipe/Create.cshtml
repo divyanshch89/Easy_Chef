@@ -12,22 +12,22 @@
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="RecipeName" class="control-label"></label>
+                    <label asp-for="RecipeName" class="control-label"> Recipe Name</label>
                     <input asp-for="RecipeName" maxlength="100" data-val-length-max="100" autofocus="autofocus" placeholder="Enter recipe name" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="RecipeName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="PrepTime" class="control-label"></label>
+                    <label asp-for="PrepTime" class="control-label"> Preparation Time</label>
                     <input asp-for="PrepTime" autofocus="autofocus" placeholder="Enter Preparation name" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="PrepTime" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="DifficultyLevel" class="control-label"></label>
+                    <label asp-for="DifficultyLevel" class="control-label">Difficulty Level</label>
                     <input asp-for="DifficultyLevel" autofocus="autofocus" placeholder="Enter difficulty level" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="DifficultyLevel" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="SpiceLevel" class="control-label"></label>
+                    <label asp-for="SpiceLevel" class="control-label">Spice Level</label>
                     <input asp-for="SpiceLevel" autofocus="autofocus" placeholder="Enter spice level" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="SpiceLevel" class="text-danger"></span>
                 </div>
@@ -57,39 +57,40 @@
                     <span asp-validation-for="Image3" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="CookLimit" class="control-label"></label>
+                    <label asp-for="CookLimit" class="control-label">Maximum Shell life</label>
                     <input asp-for="CookLimit" autofocus="autofocus" placeholder="Enter number of days" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="CookLimit" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="ShortDescription" class="control-label"></label>
-                    <input asp-for="ShortDescription" data-val-length-max="500" autofocus="autofocus" placeholder="Enter short description for recipe archive page" data-val="true" data-val-required="This is required field" class="form-control" />
+                    <label asp-for="ShortDescription" class="control-label">Short description</label>
+                    <input asp-for="ShortDescription" maxlength="500" data-val-length-max="500" autofocus="autofocus" placeholder="Enter short description for recipe archive page" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="ShortDescription" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="LongDescription" class="control-label"></label>
-                    <input asp-for="LongDescription" data-val-length-max="800" autofocus="autofocus" placeholder="Enter long description for recipe detail page" data-val="true" data-val-required="This is required field" class="form-control" />
+                    <label asp-for="LongDescription" class="control-label">Long Description</label>
+                    <textarea asp-for="LongDescription" rows="5" maxlength="800" data-val-length-max="800" autofocus="autofocus" placeholder="Enter long description for recipe detail page" data-val="true" data-val-required="This is required field" class="form-control --margintop8"></textarea>
                     <span asp-validation-for="LongDescription" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="NutritionValue" class="control-label"></label>
+                    <label asp-for="NutritionValue" class="control-label">Nutrition Value</label>
                     <input asp-for="NutritionValue" autofocus="autofocus" placeholder="Enter values in following format: Fat-9g|Carbs-23g" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="NutritionValue" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="BoxContent" class="control-label"></label>
+                    <label asp-for="BoxContent" class="control-label">Box Content</label>
                     <input asp-for="BoxContent" autofocus="autofocus" placeholder="Enter values in following format: Box content1|Box content2" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="BoxContent" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="ChefName" class="control-label"></label>
+                    <label asp-for="ChefName" class="control-label">Chef Name</label>
                     <input asp-for="ChefName" data-val-length-max="100" autofocus="autofocus" placeholder="Enter chef name" class="form-control" />
                     <span asp-validation-for="ChefName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="CuisineId" class="control-label"></label>
-                    <select asp-for="CuisineId" autofocus="autofocus" class="form-control" asp-items="ViewBag.CuisineId"></select>
+                    <label asp-for="CuisineId" class="control-label">Cuisine Id</label>
+                    <select asp-for="CuisineId" autofocus="autofocus" class="form-control --margintop8" asp-items="ViewBag.CuisineId"></select>
                 </div>
+
                 <div class="row --margintop16">
                     <div class="form-group mx-auto">
                         <a class="btn btn-warning" href="/admin/Recipe">Back to List</a>

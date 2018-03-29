@@ -6,19 +6,25 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Easy_Chef.Models;
 using Easy_Chef.Models.DB;
+using Microsoft.EntityFrameworkCore;
 
 namespace Easy_Chef.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly DB_A383F2_easychefContext _context;
+        private readonly DB_A383F2_easychefContext _context;
+        public HomeController(DB_A383F2_easychefContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
         }
         public IActionResult Menu()
         {
-            return View();
+            var dB_A383F2_easychefContext = _context.Recipe.Include(r => r.Cuisine);
+            return View(dB_A383F2_easychefContext.ToList());
         }
         public IActionResult Login()
         {

@@ -29,6 +29,9 @@ body {
 strong, b {
     font-weight: 600;
 }
+::placeholder {
+    opacity:0.6 !important;
+}
 
 /**, *:after, *:before {
     box-sizing: inherit;
@@ -289,8 +292,8 @@ a {
 .recipecontentheader {
     border-width: 0;
     border-bottom-width: 1px;
-    margin-bottom: 16px !important;
-    padding-bottom: 16px !important;
+    /*margin-bottom: 16px !important;*/
+    padding-bottom: 8px !important;
     border-color: #a9a9a9;
 }
 
