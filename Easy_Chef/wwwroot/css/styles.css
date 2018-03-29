@@ -302,7 +302,7 @@ a {
     max-width: 50px;
     width: 100%;
     float: left;
-    border-color: #b7bf10;
+    border-color: red;
     border-style: solid;
 }
 
@@ -330,9 +330,28 @@ a {
     border-radius: 50%;
 }
 
-.recipedetail .share li {
+/*.recipedetail .share li {
     padding: 2px;
+}*/
+/* This gets Google to fall into place */
+.social {
+    font-size: 10px;
 }
+
+    /* This gets Facebook to fall into place */
+    .social iframe, .social > span {
+        vertical-align: middle;
+    }
+
+    /* Set an optional width for your button wrappers */
+    .social span {
+        display: inline-block;
+        width: 110px;
+    }
+
+    .social .google {
+        width: 50px;
+    }
 /*Cart*/
 .table > tbody > tr > td, .table > tfoot > tr > td {
     vertical-align: middle;

@@ -35,24 +35,25 @@
                 </ul>
             </div>
             <div class="col-md-4">
-
-                <ul class="list-inline list-unstyled share">
-                    <li class="list-inline-item"><div class="fb-share-button" data-href="http://istm631-001-site1.gtempurl.com/menu/recipes/@Html.DisplayFor(model => model.RecipeId)" data-layout="button" data-size="large" data-mobile-iframe="false"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div></li>
-                    <li class="list-inline-item"><div class="g-plus" data-annotation="vertical-bubble" data-action="share" data-height="28"></div></li>
-                    @*<li class="list-inline-item"><a href="#" class="fa fa-google fa-lg"></a></li>*@
-
-                </ul>
+                <div class="social">
+                    <span class="google">
+                        <g:plusone size="medium" href="http://istm631-001-site1.gtempurl.com/menu/recipes/@Html.DisplayFor(model => model.RecipeId)"></g:plusone>
+                    </span>
+                    <span class="Facebook">
+                        <div class="fb-like" data-href="http://istm631-001-site1.gtempurl.com/menu/recipes/@Html.DisplayFor(model => model.RecipeId)" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+                    </span>
+                </div>
             </div>
         </div>
         <section class="recipedescmain --margintop16">
             <figure class="mainimage">
-                <img src="~/images/recipe/1_detail_1.jpg" />
+                <img src="~/images/recipe/@Html.DisplayFor(model => model.Image2)" />
             </figure>
             <section class="--margintop16">
                 <div class="row">
                     <div class="col-md-2">
                         <figure class="chefimage">
-                            <img src="~/images/recipe/1_detail_2.jpg" />
+                            <img src="~/images/recipe/@Html.DisplayFor(model => model.Image3)" />
                             <figcaption class="h--serif">@Html.DisplayFor(model => model.ChefName)</figcaption>
                             <div class="group">
                                 <div class="greenbar"></div>
@@ -74,20 +75,26 @@
                             <span class="text-muted text-italic"><em>(serves 2)</em></span>
                         </h3>
                         <div class="row">
-                            <div class="col-md-6">
-                                <ul class="list-unstyled">
-                                    <li>1 Shallot</li>
-                                    <li>8 oz. Green Beans</li>
-                                    <li>8 oz. Green Beans</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-unstyled">
-                                    <li>1 Shallot1</li>
-                                    <li>8 oz. Green Beans1</li>
-                                    <li>8 oz. Green Beans1</li>
-                                </ul>
-                            </div>
+                            @{
+                                var dataArray = Model.BoxContent.Split('|');
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        @for (var i = 0; i < dataArray.Length / 2; i++)
+                                        {
+                                            <li>@dataArray[i]</li>
+                                        }
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+
+                                        @for (var i = (dataArray.Length / 2); i < dataArray.Length; i++)
+                                        {
+                                            <li>@dataArray[i]</li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div class="col-md-4 box--tinted mealnutrition">
@@ -96,24 +103,19 @@
                                 <li class="--marginbottom16">
                                     <h4 class="size--xs">Nutrition<span class="text-muted text-thin size-mini"><em> (per serving)</em></span></h4>
                                 </li>
-                                <li class="--marginbottom16">
-                                    <div class="float-left">Calories</div>
-                                    <strong class="float-right">660</strong>
-                                </li>
-                                <li class="--marginbottom16">
-                                    <div class="float-left">Carbohydrates</div>
-                                    <strong class="float-right">49g</strong>
-                                </li>
-                                <li class="--marginbottom16">
-                                    <div class="float-left">Carbohydrates</div>
-                                    <strong class="float-right">49g</strong>
-                                </li>
-                                <li class="--marginbottom16">
-                                    <div class="float-left">Carbohydrates</div>
-                                    <strong class="float-right">49g</strong>
-                                </li>
-                            </ul>
+                                @{
+                                    var data = Model.NutritionValue.Split('|');
+                                    foreach (var item in data)
+                                    {
+                                        var itemsplit = item.Split('-');
+                                        <li class="--marginbottom16">
+                                            <div class="float-left">@itemsplit[0]</div>
+                                            <strong class="float-right">@itemsplit[1]</strong>
+                                        </li>
 
+                                    }
+                                }
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -91,6 +91,7 @@ var EasyChef = EasyChef || {
                         if ($("#adminnav")) {
                             $("#adminnav").remove();
                         }
+                        //delete the authorization cookie
                         EasyChef.Facebook.init();
                     });
                 }

@@ -15,87 +15,87 @@
                 <input type="hidden" asp-for="RecipeId" />
                 <div class="form-group">
                     <label asp-for="RecipeName" class="control-label"></label>
-                    <input asp-for="RecipeName" class="form-control" />
+                    <input asp-for="RecipeName" maxlength="100" data-val-length-max="100" autofocus="autofocus" placeholder="Enter recipe name" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="RecipeName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="PrepTime" class="control-label"></label>
-                    <input asp-for="PrepTime" class="form-control" />
+                    <input asp-for="PrepTime" autofocus="autofocus" placeholder="Enter Preparation name" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="PrepTime" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="DifficultyLevel" class="control-label"></label>
-                    <input asp-for="DifficultyLevel" class="form-control" />
+                    <input asp-for="DifficultyLevel" autofocus="autofocus" placeholder="Enter difficulty level" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="DifficultyLevel" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="SpiceLevel" class="control-label"></label>
-                    <input asp-for="SpiceLevel" class="form-control" />
+                    <input asp-for="SpiceLevel" autofocus="autofocus" placeholder="Enter spice level" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="SpiceLevel" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Price" class="control-label"></label>
-                    <input asp-for="Price" class="form-control" />
+                    <input asp-for="Price" autofocus="autofocus" placeholder="Enter recipe price without dollar sign" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="IsVeg" class="control-label"></label>
-                    <input asp-for="IsVeg" class="form-control" />
+                    <input asp-for="IsVeg" autofocus="autofocus" placeholder="Enter Yes or No" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="IsVeg" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Image1" class="control-label"></label>
-                    <input asp-for="Image1" class="form-control" />
+                    <input asp-for="Image1" autofocus="autofocus" placeholder="This will be the small image for recipe archive page" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="Image1" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Image2" class="control-label"></label>
-                    <input asp-for="Image2" class="form-control" />
+                    <input asp-for="Image2" autofocus="autofocus" placeholder="This will be the main image for recipe detail page" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="Image2" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Image3" class="control-label"></label>
-                    <input asp-for="Image3" class="form-control" />
+                    <input asp-for="Image3" autofocus="autofocus" placeholder="This image is optional" class="form-control" />
                     <span asp-validation-for="Image3" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="CookLimit" class="control-label"></label>
-                    <input asp-for="CookLimit" class="form-control" />
+                    <input asp-for="CookLimit" autofocus="autofocus" placeholder="Enter number of days" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="CookLimit" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="ShortDescription" class="control-label"></label>
-                    <input asp-for="ShortDescription" class="form-control" />
+                    <input asp-for="ShortDescription" maxlength="500" data-val-length-max="500" autofocus="autofocus" placeholder="Enter short description for recipe archive page" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="ShortDescription" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="LongDescription" class="control-label"></label>
-                    <input asp-for="LongDescription" class="form-control" />
+                    <input asp-for="LongDescription" maxlength="800" data-val-length-max="800" autofocus="autofocus" placeholder="Enter long description for recipe detail page" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="LongDescription" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="NutritionValue" class="control-label"></label>
-                    <input asp-for="NutritionValue" class="form-control" />
+                    <input asp-for="NutritionValue" autofocus="autofocus" placeholder="Enter values in following format: Fat-9g|Carbs-23g" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="NutritionValue" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="BoxContent" class="control-label"></label>
-                    <input asp-for="BoxContent" class="form-control" />
+                    <input asp-for="BoxContent" autofocus="autofocus" placeholder="Enter values in following format: Box content1|Box content2" data-val="true" data-val-required="This is required field" class="form-control" />
                     <span asp-validation-for="BoxContent" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="ChefName" class="control-label"></label>
-                    <input asp-for="ChefName" class="form-control" />
+                    <input asp-for="ChefName" data-val-length-max="100" autofocus="autofocus" placeholder="Enter chef name" class="form-control" />
                     <span asp-validation-for="ChefName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="CuisineId" class="control-label"></label>
-                    <select asp-for="CuisineId" class="form-control" asp-items="ViewBag.CuisineId"></select>
+                    <select asp-for="CuisineId" autofocus="autofocus" class="form-control" asp-items="ViewBag.CuisineId"></select>
                     <span asp-validation-for="CuisineId" class="text-danger"></span>
                 </div>
                 <div class="row --margintop16">
                     <div class="form-group mx-auto">
-                        <a  class="btn btn-warning" href="/admin/recipe">Back to List</a>
+                        <a class="btn btn-warning" href="/admin/recipe">Back to List</a>
                         <input type="submit" value="Save" class="btn btn-primary" />
                     </div>
                 </div>
