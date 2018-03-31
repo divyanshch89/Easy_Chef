@@ -50,6 +50,7 @@ var EasyChef = EasyChef || {
                         $("#status").addClass("hide");
                     }
                 }
+                return;
             });
         },
         login: function () {
@@ -66,13 +67,15 @@ var EasyChef = EasyChef || {
             FB.api('/me', { locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture' },
                 function (response) {
                     console.log("Fetching user data");
+
                     //change button to log out
                     $(".login").remove();
-                    //insert new logout nav
-                    var newLogout = $("<li class='nav-item login'><a class='nav-link' onclick='EasyChef.Facebook.logout()' href='#'><span>Logout</span></a></li >");
-                    $("#rightnav li:first-child").after(newLogout);
                     //create welcome message
                     EasyChef.Utility.createWelcome(response.first_name);
+                    //insert new logout nav
+                    var newLogout = $("<li class='nav-item login'><a class='nav-link' onclick='EasyChef.Facebook.logout()' href='#'><span>Logout</span></a></li >");
+                    $("#rightnav li:eq(0)").after(newLogout);
+
                     //manage user authorization
                     EasyChef.Utility.checkAuthorization(response);
                     if (EasyChef.Utility.getPageName() == "login") {
@@ -87,9 +90,11 @@ var EasyChef = EasyChef || {
             FB.getLoginStatus(function (response) {
                 if (response.status == 'connected') {
                     FB.logout(function (response) {
+                        EasyChef.Utility.manageNavAfterLogout()
                         console.log("User logged out!");
-                        EasyChef.Utility.manageNavAfterLogout();
+                        return;
                     });
+
                 }
             });
         }
@@ -256,7 +261,7 @@ var EasyChef = EasyChef || {
         createAdminNav: function () {
             if ($("#adminnav").length == 0) {
                 var newElem = $("<li id='adminnav' class='nav-item'><a class='nav-link' href='/admin/recipe'><span>Admin</span></a></li>");
-                $("#rightnav li:eq(0)").after(newElem);
+                $("#rightnav li:eq(1)").after(newElem);
             }
         },
         createNewUser: function () {
