@@ -83,8 +83,8 @@
                     {
                         dynamic cookieData = Newtonsoft.Json.JsonConvert.DeserializeObject(httpContextaccessor.HttpContext.Request.Cookies["authentication"]);
                         <li class="nav-item userwelcome">
-                                <a href="#"><span>Howdy, @cookieData.first_name!</span></a>
-                            </li>
+                            <a href="#"><span>Howdy, @cookieData.first_name!</span></a>
+                        </li>
                         <li class="nav-item login">
                             <a class="nav-link" onclick="EasyChef.Facebook.logout()" href="#"><span>Logout</span></a>
                         </li>
@@ -122,36 +122,35 @@
     <footer class="footer hide">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-2 footerlogo">
+               <!----
+                <div class="col-sm-1 footerlogo">
                     <div class="row">
                         <img class="img-fluid" src="~/images/Easy_Chef_Logo.png" alt="Easy Chef" />
                     </div>
                 </div>
-                <div class="col-sm-10 footerlinks">
+                   ----->
+                <div class="col-sm-12 footerlinks">
                     <div class="row">
-                        <div class="col-sm-4">
-                            <ul>
-                                <li>Lorem Ipsum</li>
-                                <li>Lorem Ipsum</li>
-                            </ul>
+                        <div class="col-sm-2">
+
                         </div>
                         <div class="col-sm-4">
-                            <ul>
-                                <li>Lorem Ipsum</li>
-                                <li>Lorem Ipsum</li>
+                            <ul style="text-align:left">
+                                <li>Our Menu</li>
+                                <li>How it Works</li>
+                                <li>Login</li>
                             </ul>
                         </div>
+
+
                         <div class="col-sm-4">
-                            <ul>
-                                <li>Lorem Ipsum</li>
-                                <li>Lorem Ipsum</li>
-                            </ul>
+                            <ul></ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <span class="text-muted mx-auto">&copy;@DateTime.Now.Year Easy Chef. Designed and Developed by Team#04 for ISTM 631 601</span>
+                <span class="text-muted mx-auto" style="text-align:center;">&copy;@DateTime.Now.Year Easy Chef. Designed and Developed by Team#04 for ISTM 631 601</span>
             </div>
         </div>
     </footer>

@@ -207,7 +207,7 @@ a {
 }
 
 .mainheading {
-    color: #319b42;
+    color: #d01b1b;
     margin-top: 0px;
     font-weight: 300;
     font-family: NexaBook,Rockwell, Georgia, serif;
@@ -216,7 +216,7 @@ a {
 
 #headingbottom {
     margin: 20px 0;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 22px;
 }
 
@@ -322,7 +322,7 @@ a {
 }
 
 .addtocart {
-    background-color: #319b42 !important;
+    background-color: #d01b1b !important;
     color: #fff;
     text-transform: none;
     text-decoration: none;

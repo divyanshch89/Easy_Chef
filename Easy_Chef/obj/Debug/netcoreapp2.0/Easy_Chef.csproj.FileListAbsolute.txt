@@ -19,3 +19,14 @@ D:\VSProject\ISTM632_Repo\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.
 D:\VSProject\ISTM632_Repo\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.AssemblyInfo.cs
 D:\VSProject\ISTM632_Repo\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.dll
 D:\VSProject\ISTM632_Repo\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.pdb
+C:\Users\rafip\Desktop\MIS\Spring-2018\ISTM 631\WEBSITE\Easy_Chef\Easy_Chef\bin\Debug\netcoreapp2.0\Easy_Chef.deps.json
+C:\Users\rafip\Desktop\MIS\Spring-2018\ISTM 631\WEBSITE\Easy_Chef\Easy_Chef\bin\Debug\netcoreapp2.0\Easy_Chef.runtimeconfig.json
+C:\Users\rafip\Desktop\MIS\Spring-2018\ISTM 631\WEBSITE\Easy_Chef\Easy_Chef\bin\Debug\netcoreapp2.0\Easy_Chef.runtimeconfig.dev.json
+C:\Users\rafip\Desktop\MIS\Spring-2018\ISTM 631\WEBSITE\Easy_Chef\Easy_Chef\bin\Debug\netcoreapp2.0\Easy_Chef.dll
+C:\Users\rafip\Desktop\MIS\Spring-2018\ISTM 631\WEBSITE\Easy_Chef\Easy_Chef\bin\Debug\netcoreapp2.0\Easy_Chef.pdb
+C:\Users\rafip\Desktop\MIS\Spring-2018\ISTM 631\WEBSITE\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.csprojResolveAssemblyReference.cache
+C:\Users\rafip\Desktop\MIS\Spring-2018\ISTM 631\WEBSITE\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.csproj.CoreCompileInputs.cache
+C:\Users\rafip\Desktop\MIS\Spring-2018\ISTM 631\WEBSITE\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.AssemblyInfoInputs.cache
+C:\Users\rafip\Desktop\MIS\Spring-2018\ISTM 631\WEBSITE\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.AssemblyInfo.cs
+C:\Users\rafip\Desktop\MIS\Spring-2018\ISTM 631\WEBSITE\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.dll
+C:\Users\rafip\Desktop\MIS\Spring-2018\ISTM 631\WEBSITE\Easy_Chef\Easy_Chef\obj\Debug\netcoreapp2.0\Easy_Chef.pdb
