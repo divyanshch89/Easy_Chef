@@ -220,12 +220,12 @@ var EasyChef = EasyChef || {
             if (this.readCookie(EasyChef.globalVars.authenticationCookieName) == null) {
                 //cookie don't exist
                 //check if the user exist in database and get his role
-                EasyChef.Utility.makeAjax(this.format(EasyChef.globalVars.getUserDataUrl, fbresponse.email), "GET", "", function (success) {
+                EasyChef.Utility.makeAjax(this.format(EasyChef.globalVars.getUserDataUrl, fbresponse.id), "GET", "", function (success) {
                     //handle success
                     //user exist
                     //set username and role in a cookie
                     var obj = new Object();
-                    obj.email = fbresponse.email;
+                    obj.fbid = fbresponse.id;
                     obj.first_name = fbresponse.first_name;
                     if (success == "") {
                         //user not available

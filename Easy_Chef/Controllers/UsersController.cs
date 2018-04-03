@@ -45,16 +45,16 @@ namespace Easy_Chef.Controllers
 
             return Ok(user);
         }
-        // GET: api/UsersByEmail/user@contoso.com
-        [HttpGet("{email}")]
-        public async Task<IActionResult> GetUserByEmail([FromRoute] string email)
+        // GET: api/UsersByFBId/xxxxxxxxxxxxxxx
+        [HttpGet("{fbId}")]
+        public async Task<IActionResult> GetUserByEmail([FromRoute] string fbId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.User.Select(x => new { x.UserEmail, x.Role.RoleName }).SingleOrDefaultAsync(m => m.UserEmail == email);
+            var user = await _context.User.Select(x => new { x.UserFbId, x.Role.RoleName }).SingleOrDefaultAsync(m => m.UserFbId == fbId);
 
             if (user == null)
             {

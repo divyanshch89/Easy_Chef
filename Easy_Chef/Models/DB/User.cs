@@ -12,6 +12,7 @@ namespace Easy_Chef.Models.DB
         public string UserAddress { get; set; }
         public int RoleId { get; set; }
         public int? PaymentId { get; set; }
+        public string UserFbId { get; set; }
 
         public Payment Payment { get; set; }
         public Role Role { get; set; }

@@ -13178,24 +13178,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rafip\\.nuget\\packages\\": {},
+    "C:\\Users\\divya\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\rafip\\Desktop\\MIS\\Spring-2018\\ISTM 631\\WEBSITE\\Easy_Chef\\Easy_Chef\\Easy_Chef.csproj",
+      "projectUniqueName": "D:\\VSProject\\ISTM632_Repo\\Easy_Chef\\Easy_Chef\\Easy_Chef.csproj",
       "projectName": "Easy_Chef",
-      "projectPath": "C:\\Users\\rafip\\Desktop\\MIS\\Spring-2018\\ISTM 631\\WEBSITE\\Easy_Chef\\Easy_Chef\\Easy_Chef.csproj",
-      "packagesPath": "C:\\Users\\rafip\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rafip\\Desktop\\MIS\\Spring-2018\\ISTM 631\\WEBSITE\\Easy_Chef\\Easy_Chef\\obj\\",
+      "projectPath": "D:\\VSProject\\ISTM632_Repo\\Easy_Chef\\Easy_Chef\\Easy_Chef.csproj",
+      "packagesPath": "C:\\Users\\divya\\.nuget\\packages\\",
+      "outputPath": "D:\\VSProject\\ISTM632_Repo\\Easy_Chef\\Easy_Chef\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\rafip\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\divya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
