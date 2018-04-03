@@ -7,4 +7,10 @@
     .homegetstarted{
         text-align:center !important;
     }
+    .userwelcome{
+        display:none
+    }
+    .navbar-brand img{
+        width:80px;
+    }
 }
