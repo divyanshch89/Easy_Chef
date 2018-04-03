@@ -16,7 +16,7 @@
                 <h2 class="h--serif --marginbottom16 --margintop8 shortdescription">@Html.DisplayFor(model => model.ShortDescription)</h2>
             </div>
             @*<div class="greenbar"></div>*@
-            <span class="text-muted price">$@Html.DisplayFor(model => model.Price) per serving</span>
+            <span class="text-muted price">$@Html.DisplayFor(model => model.Price) per serving</span> | <span class="cuisine text-muted">Cuisine: </span>@Html.DisplayFor(model => model.Cuisine.CuisineName)
         </header>
         <br />
         <div class="row">

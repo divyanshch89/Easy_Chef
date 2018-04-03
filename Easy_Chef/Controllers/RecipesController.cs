@@ -22,7 +22,7 @@ namespace Easy_Chef.Controllers
                 return NotFound();
             }
 
-            var recipe = await _context.Recipe.SingleOrDefaultAsync(m => m.RecipeId == id);
+            var recipe = await _context.Recipe.Include(r => r.Cuisine).SingleOrDefaultAsync(m => m.RecipeId == id);
             if (recipe == null)
             {
                 return NotFound();
