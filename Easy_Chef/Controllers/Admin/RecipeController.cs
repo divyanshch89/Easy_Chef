@@ -16,6 +16,7 @@ namespace Easy_Chef.Controllers
         dynamic authenticationCookie = null;
         public RecipeController(DB_A383F2_easychefContext context, IHttpContextAccessor httpContextAccessor)
         {
+
             _context = context;
             _httpContextAccessor = httpContextAccessor;
             if (_httpContextAccessor.HttpContext.Request.Cookies["authentication"] != null)

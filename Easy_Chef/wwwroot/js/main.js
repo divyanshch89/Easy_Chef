@@ -28,6 +28,7 @@ var EasyChef = EasyChef || {
             $(".cart").addClass("active");
         }
     },
+
     Facebook: {
         init: function () {
             // Check whether the user already logged in
