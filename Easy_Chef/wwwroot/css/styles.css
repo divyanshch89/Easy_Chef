@@ -23,7 +23,13 @@ body {
     -webkit-font-feature-settings: "liga", "dlig" 0;
     font-feature-settings: "liga", "dlig" 0;
     font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+}
+
+
+::selection {
+    color: #302e21;
+    background: rgba(57,191,0,0.25);
+    text-shadow: none;
 }
 
 strong, b {
@@ -74,11 +80,12 @@ a {
         }
 
 .navbar-brand, .collapse {
-    padding-bottom: 0px;
+    padding: 0px;
+    padding-top:3px;
 }
 
     .navbar-brand img {
-        width: 103px;
+        width: 140px;
         height: auto;
     }
 
@@ -87,6 +94,9 @@ a {
     display: inline-block;
 }
 
+#menu-main-menu li,#rightnav li{
+    margin-top:12px;
+} 
 .navbar-nav > li > a {
     line-height: 20px;
 }
@@ -428,6 +438,45 @@ a {
             display: block;
         }
 }
+/*Login screen*/
+.loginbg {
+    background: url(/images/login_bg.png) repeat;
+    background-size: 800px 911px;
+    /*min-height: 400px;*/
+    /*background-color: #f7f7f7;*/
+    overflow: auto;
+    /*left:-50vw;*/
+    width: 100vw;
+    /*margin-left:50%;*/
+    padding: 4rem 0;
+    background-position: 50% 50%;
+    text-align: center;
+    /*position: relative;
+    overflow-x: hidden;*/
+}
+
+/*.loginbg:before {
+        left: 50%;
+        width: 100%;
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 100%;
+        background: rgba(255,255,255,0.8);
+        transform: skew(153deg);
+        border-left: 1px solid #cccccc;
+    }*/
+.vl {
+    border-left: 1px solid #b7b7b7;
+    height: 500px;
+}
+.fb-login-button {
+    margin-top: 16px;
+}
+
+/*.loginbg .heading {
+    padding: 20px 0 20px 120px;
+}*/
 /*Footer*/
 .footer img {
     width: 60px;
@@ -441,7 +490,14 @@ a {
 .footer .footerlinks {
     text-align: center;
 }
+.footerlinks a{
+    color:#302e21;
+}
 
 .footer .footerlogo {
     padding: 10px 30px;
+}
+
+.content {
+    min-height: 400px;
 }

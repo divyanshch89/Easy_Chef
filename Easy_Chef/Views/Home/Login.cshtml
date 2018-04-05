@@ -1,17 +1,50 @@
-﻿<div class="container --margintop16">
-    <h2 class="--h-serif"> This is login page</h2>
+﻿@{
+    Layout = "~/Views/Shared/_Layout_no_nav.cshtml";
+    ViewData["Title"] = "Page Title";
+}
+<div class="loginbg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div>
+                    <h1 class="mainheading">Welcome to Easy Chef</h1>
+                    <h2 id="headingbottom">
+                        We are social to say the least. Use Facebook login for more personalized view -Chef Shifu
+                    </h2>
+                    @*<div class="homegetstarted">
+                            <a class="btn btn-danger" href="/menu">Check out our menu</a>
+                        </div>*@
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="vl"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="heading row text-center">
+                    Use this space to add some funny lines from Cheg Shifu
+                </div>
+                <div class="fb-login-button hide" onlogin="EasyChef.Facebook.init()" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                @*<h2 class="--h-serif"> This is login page</h2>*@
 
 
-    <div class="fb-login-button hide" onlogin="EasyChef.Facebook.init()" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
-
-    <!-- Display login status -->
-    <div id="status"></div>
 
 
-    <!-- Display user profile data -->
-    <div id="userData"></div>
-    <script>
-        //for setting nav active
-        EasyChef.Utility.setNavActive("");
-    </script>
+                <!-- Display login status -->
+                <div id="status"></div>
+                
+
+                <!-- Display user profile data -->
+                <div id="userData"></div>
+                <div>
+                    <a href="/" class="btn btn-danger hide">Take me to the site</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
+<script>
+    //for setting nav active
+    EasyChef.Utility.setNavActive("");
+</script>
+

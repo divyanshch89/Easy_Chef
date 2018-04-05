@@ -1,16 +1,22 @@
-﻿@media screen and (min-width:1100px){
-    
-} 
+﻿@media screen and (min-width:1100px) {
+}
 
 /*For small devices*/
 @media (max-width: 767px) {
-    .homegetstarted{
-        text-align:center !important;
+    .homegetstarted {
+        text-align: center !important;
     }
-    .userwelcome{
-        display:none
+
+    .userwelcome {
+        display: none
     }
-    .navbar-brand img{
-        width:80px;
+
+    .navbar-brand img {
+        width: 70px;
     }
+
+    .loginbg:before, .loginbg .vl {
+        display: none;
+    }
+    
 }
