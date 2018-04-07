@@ -265,6 +265,7 @@ a {
 .card {
     /*padding:0 16px 32px;*/
     max-height:390px;
+    overflow:hidden;
 }
 
     .card a {
