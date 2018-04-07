@@ -1,12 +1,12 @@
-﻿<div class="container">
+﻿<div class="container --margintop16">
     <table id="cart" class="table table-hover table-condensed">
         <thead>
             <tr>
-                <th style="width:50%">Recipe</th>
-                <th style="width:10%">Price</th>
-                <th style="width:8%">Quantity</th>
-                <th style="width:22%" class="text-center">Subtotal</th>
-                <th style="width:10%"></th>
+                <th>Recipe</th>
+                <th>Price</th>
+                <th width="10%">Quantity</th>
+                <th class="text-center">Subtotal</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -48,14 +48,19 @@
             </tr>
         </tbody>
         <tfoot>
-            <tr class="d-block">
-                <td class="text-center"><strong>Total $1.99</strong></td>
+            <tr style="border-bottom:1px solid #dee2e6;">
+                <td colspan="2"></td>
+                <td style="text-align:center;"><strong>Total</strong></td>
+                <td class="text-center"><strong>$1.99</strong></td>
+                <td></td>
             </tr>
             <tr>
                 <td><a href="#" onclick="window.history.back()" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-                <td colspan="2" class="d-none"></td>
+                <td class="d-none"></td>
                 <td class="d-none text-center"><strong>Total $1.99</strong></td>
-                <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                <td class="hide-sm"></td>
+                <td class="hide-sm"></td>
+                <td colspan="2"><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
             </tr>
         </tfoot>
     </table>

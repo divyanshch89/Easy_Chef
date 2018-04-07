@@ -257,10 +257,14 @@ a {
     padding: 0 24px;
     text-align: center;
 }
-
+/*About Us*/
+.aboutus p{
+    line-height:32px;
+}
 /*Recipe archive*/
 .card {
     /*padding:0 16px 32px;*/
+    max-height:390px;
 }
 
     .card a {
@@ -477,6 +481,16 @@ a {
 /*.loginbg .heading {
     padding: 20px 0 20px 120px;
 }*/
+/*Admin index*/
+.actions{
+    padding-right:0px !important;
+}
+.actions a{
+    margin-right:10px;
+}
+    .actions a:last-child {
+        margin-right: 0px;
+    }
 /*Footer*/
 .footer img {
     width: 60px;
@@ -492,6 +506,7 @@ a {
 }
 .footerlinks a{
     color:#302e21;
+    text-decoration:none;
 }
 
 .footer .footerlogo {

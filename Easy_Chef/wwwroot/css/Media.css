@@ -18,5 +18,11 @@
     .loginbg:before, .loginbg .vl {
         display: none;
     }
+    #addtocart{
+        margin-bottom:16px;
+    }
+    .hide-sm{
+        display:none !important;
+    }
     
 }
