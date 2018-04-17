@@ -54,8 +54,16 @@
         <a class="btn btn-danger" href="/login">Get Started</a>
 
     </div>
+    
     <script>
         //for setting nav active
         EasyChef.Utility.setNavActive("homenav");
     </script>
 </section>
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            EasyChef.Utility.funnyMessage(EasyChef.shifuMessages.greetingDictionary);
+        }, 4000);
+    });
+</script>

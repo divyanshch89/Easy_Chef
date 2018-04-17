@@ -11,11 +11,16 @@ var EasyChef = EasyChef || {
         getUserDataUrl: "/api/Users/{0}",
         createNewUserUrl: "/api/Users",
         authenticationCookieName: "authentication",
-        welcomeMessage: "Howdy, {0}"
+        welcomeMessage: "Howdy, {0}",
+    },
+    shifuMessages: {
+        cartdictionary: ["Well, that's a smart choice", "You're one in mellon", "I prepred this meal specially for you"],
+        greetingDictionary: ["Howdy, people of Texas", "Rise and shine", "You forgot your apron Chef!", "Let's make something awesome today"]
     },
     init: function () {
         //position the footer as per screen height
         EasyChef.Utility.positionFooter();
+        //EasyChef.Utility.showSnackBar();
         //init fb authentication process
         // EasyChef.Facebook.init();
     },
@@ -26,6 +31,8 @@ var EasyChef = EasyChef || {
             $(".badge").addClass("active");
             $(".badge").removeClass("hide");
             $(".cart").addClass("active");
+            //generate funny message
+            EasyChef.Utility.funnyMessage(EasyChef.shifuMessages.cartdictionary);
         }
     },
 
@@ -299,6 +306,23 @@ var EasyChef = EasyChef || {
             }
             //delete the authorization cookie
             EasyChef.Facebook.init();
+        },
+        showSnackBar: function () {
+            // Get the snackbar DIV
+            var x = document.getElementById("snackbar");
+
+            // Add the "show" class to DIV
+            x.className = "show";
+
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+        },
+        funnyMessage: function (items) {
+            //get random message
+            var item = items[Math.floor(Math.random() * items.length)];
+            item = "Chef Shifu - " + "'" + item + "'";
+            $("#snackbar").text(item);
+            EasyChef.Utility.showSnackBar();
         }
     }
 };

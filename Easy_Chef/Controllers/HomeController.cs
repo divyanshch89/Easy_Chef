@@ -35,6 +35,23 @@ namespace Easy_Chef.Controllers
             return View();
         }
 
+        public IActionResult Checkout()
+        {
+            return View();
+        }
+        public IActionResult OrderReview()
+        {
+            return View();
+        }
+        public IActionResult Payment()
+        {
+            return View();
+        }
+        public IActionResult OrderComplete()
+        {
+            return View();
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

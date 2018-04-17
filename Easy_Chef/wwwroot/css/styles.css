@@ -8,6 +8,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     margin: 0;
     padding: 0;
     border: 0;
+   
 }
 
 body {
@@ -81,7 +82,7 @@ a {
 
 .navbar-brand, .collapse {
     padding: 0px;
-    padding-top:3px;
+    padding-top: 3px;
 }
 
     .navbar-brand img {
@@ -94,9 +95,10 @@ a {
     display: inline-block;
 }
 
-#menu-main-menu li,#rightnav li{
-    margin-top:12px;
-} 
+#menu-main-menu li, #rightnav li {
+    margin-top: 12px;
+}
+
 .navbar-nav > li > a {
     line-height: 20px;
 }
@@ -258,14 +260,14 @@ a {
     text-align: center;
 }
 /*About Us*/
-.aboutus p{
-    line-height:32px;
+.aboutus p {
+    line-height: 32px;
 }
 /*Recipe archive*/
 .card {
     /*padding:0 16px 32px;*/
-    max-height:390px !important;
-    overflow:hidden;
+    max-height: 390px !important;
+    overflow: hidden;
 }
 
     .card a {
@@ -401,9 +403,9 @@ a {
     /*background-color: #f7f7f7;*/
     overflow: auto;
     /*left:-50vw;*/
-    width: 100vw;
+    /*width: 100vw;*/
     /*margin-left:50%;*/
-    /*padding: 4rem 0;*/
+    padding: 4rem 0;
     background-position: 50% 50%;
     text-align: center;
     /*position: relative;
@@ -425,6 +427,7 @@ a {
     border-left: 1px solid #b7b7b7;
     height: 500px;
 }
+
 .fb-login-button {
     margin-top: 16px;
 }
@@ -433,15 +436,277 @@ a {
     padding: 20px 0 20px 120px;
 }*/
 /*Admin index*/
-.actions{
-    padding-right:0px !important;
+.actions {
+    padding-right: 0px !important;
 }
-.actions a{
-    margin-right:10px;
-}
-    .actions a:last-child {
-        margin-right: 0px;
+
+    .actions a {
+        margin-right: 10px;
     }
+
+        .actions a:last-child {
+            margin-right: 0px;
+        }
+
+/*Review cart*/
+.heading-design-center-h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 30px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+    .heading-design-center-h3::after {
+        background: rgba(0, 0, 0, 0) linear-gradient(to right, #007bff 0%, #005ec2 100%) repeat scroll 0 0;
+        border-radius: 12px;
+        content: "";
+        height: 3px;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        bottom: -16px;
+        width: 49px;
+    }
+
+.border-form-control {
+    background: #f1f2f7 none repeat scroll 0 0;
+    border: 1px solid #e6e7ec;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: normal;
+    font-weight: 600;
+}
+
+textarea.border-form-control {
+    height: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.border-form-control::placeholder {
+    color: #b9bdc9;
+    opacity: 1;
+}
+
+.form-control:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.control-label {
+    color: #a1a8bb;
+    font-weight: 700 !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+}
+/* Checkout Step */
+.checkout-step {
+    display: inline-block;
+    width: 100%;
+}
+
+    .checkout-step ul {
+        display: table;
+        margin: 0 auto 25px;
+        text-align: center;
+    }
+
+        .checkout-step ul li {
+            color: #ffee00;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 15px;
+            margin: 0 -2px;
+            text-align: center;
+        }
+
+            .checkout-step ul li .step {
+                float: left;
+                margin-bottom: 10px;
+                position: relative;
+            }
+
+                .checkout-step ul li .step .circle {
+                    background: #007bff none repeat scroll 0 0;
+                    border-radius: 50%;
+                    color: #ffffff;
+                    display: inline-block;
+                    font-size: 16px;
+                    font-weight: 500;
+                    height: 32px;
+                    left: 50%;
+                    padding: 5px 11px;
+                    position: absolute;
+                    text-align: left;
+                    transform: translateX(-50%);
+                    width: 32px;
+                }
+
+                .checkout-step ul li .step .line {
+                    background: #007bff none repeat scroll 0 0;
+                    float: left;
+                    height: 7px;
+                    margin: 12px -1px 12px 0;
+                    width: 155px;
+                }
+
+            .checkout-step ul li:first-child .step .line {
+                border-radius: 3px 0 0 3px;
+                width: 155px;
+            }
+
+            .checkout-step ul li:last-child .step .line {
+                background: #868e96 none repeat scroll 0 0;
+                border-radius: 0 3px 3px 0;
+                width: 155px;
+            }
+
+            .checkout-step ul li span {
+                color: #007bff;
+                display: block;
+                line-height: 20px;
+                padding: 6px 15px 6px 6px;
+            }
+
+            .checkout-step ul li.step-done {
+                color: #26537f;
+            }
+
+            .checkout-step ul li.active {
+                color: #ffee00;
+            }
+
+            .checkout-step ul li.step-done .step .circle,
+            .checkout-step ul li.step-done .step .line {
+                background: #26537f none repeat scroll 0 0;
+            }
+
+            .checkout-step ul li.active .step .circle,
+            .checkout-step ul li.active .step .line {
+                background: #dc3545 none repeat scroll 0 0;
+            }
+
+    .checkout-step .active span {
+        color: #dc3545;
+    }
+
+    .checkout-step li.active + li .circle,
+    .checkout-step li.active + li + li .circle,
+    .checkout-step li.active + li + li + li .circle,
+    .checkout-step li.active + li .line,
+    .checkout-step li.active + li + li .line,
+    .checkout-step li.active + li + li + li .line {
+        background: #868e96 none repeat scroll 0 0;
+    }
+
+    .checkout-step li.active + li span,
+    .checkout-step li.active + li + li span,
+    .checkout-step li.active + li + li + li span {
+        color: #868e96;
+    }
+/* Widget */
+.widget {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 6px rgba(193, 193, 193, 0.62);
+    display: inline-block;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.widget-header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    margin: 0 0 9px;
+}
+
+.widget-header small {
+    line-height: 2px;
+}
+
+.widget-header h1 i {
+    background: #007bff;
+    background: -moz-linear-gradient(left, #007bff 0%, #005ec2 100%);
+    background: -webkit-linear-gradient(left, #007bff 0%, #005ec2 100%);
+    background: linear-gradient(to right, #007bff 0%, #005ec2 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#007bff', endColorstr='#005ec2', GradientType=1);
+    border-radius: 35px;
+    color: #fff;
+    display: inline-block;
+    height: 40px;
+    left: -23px;
+    line-height: 38px;
+    position: absolute;
+    text-align: center;
+    top: 26px;
+    width: 40px;
+}
+
+.trends li a {
+    color: #666666;
+    display: list-item;
+    width: 100%;
+    line-height: 34px;
+    position: relative;
+}
+
+    .trends li a:hover {
+        color: #007bff;
+    }
+
+        .trends li a:hover::before {
+            border-left: 2px solid #007bff;
+            bottom: 0;
+            content: "";
+            left: -20px;
+            position: absolute;
+            top: 0;
+            width: 2px;
+        }
+
+.trends li:last-child strong {
+    color: #007bff;
+}
+
+.trends a i {
+    color: #007bff;
+    margin: 0 5px 0 0;
+}
+
+.trends a:hover .item-numbers {
+    background: #4bd98a none repeat scroll 0 0;
+}
+
+.item-numbers {
+    background: #ccc none repeat scroll 0 0;
+    border-radius: 25px;
+    color: #fff;
+    float: right;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 18px;
+    margin: 8px 0 0;
+    min-width: 30px;
+    padding: 0 7px;
+    text-align: center;
+}
+
+.order-done i {
+    color: #4bd98a;
+    font-size: 102px;
+}
+/* End Widget */
+
 /*Footer*/
 .footer img {
     width: 60px;
@@ -455,9 +720,10 @@ a {
 .footer .footerlinks {
     text-align: center;
 }
-.footerlinks a{
-    color:#302e21;
-    text-decoration:none;
+
+.footerlinks a {
+    color: #302e21;
+    text-decoration: none;
 }
 
 .footer .footerlogo {
@@ -466,4 +732,78 @@ a {
 
 .content {
     min-height: 400px;
+}
+
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    /*margin-left: -125px;*/ /* Divide value of min-width by 2 */
+    background-color: #d01b1b; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    /*display: inline-block;*/
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    /*left: 50%;*/ /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+    border-radius: 6px;
+}
+
+    /* Show the snackbar when clicking on a button (class added with JavaScript) */
+    #snackbar.show {
+        visibility: visible; /* Show the snackbar */
+        /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+However, delay the fade out process for 2.5 seconds */
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 4.5s;
+        animation: fadein 0.5s, fadeout 0.5s 4.5s;
+    }
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }

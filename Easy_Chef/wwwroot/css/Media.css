@@ -24,6 +24,9 @@
     .hide-sm{
         display:none !important;
     }
+    .order-done i {
+        font-size: 64px;
+    }
     
 }
 
@@ -78,3 +81,5 @@
             display: block;
         }
 }
+
+
