@@ -1,0 +1,68 @@
+﻿@using Easy_Chef.Utility
+<section class="shopping_cart_page">
+    <div class="container">
+        <div class="row --marginbottom16">
+            <div class="col-lg-12 col-md-12 --margintop16">
+                <div class="checkout-step mb-40">
+                    <ul>
+                        <li>
+                            <a href="/checkout">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">1</div>
+                                </div>
+                                <span>Shipping</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/orderreview">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">2</div>
+                                </div>
+                                <span>Order Overview</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/payment">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">3</div>
+                                </div>
+                                <span>Payment</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="/ordercomplete">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">4</div>
+                                </div>
+                                <span>Order Complete</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 mx-auto">
+                <div class="widget">
+                    <div class="order-detail-form text-center">
+                        <div class="col-lg-10 col-md-10 mx-auto order-done">
+                            <i class="fas fa-check-circle"></i>
+                            <h3 class="text-success --marginbottom8">Congratulations! Your Order has been Accepted.</h3>
+                            <div class="h--serif --marginbottom8">
+                                <span class="text-muted">Order number: </span><span>@Helper.GenerateOrderNumber()</span>
+                            </div>
+                            <p>
+                                Alright Chef, You're awesome recipe box is on the way. Brace yourself for lip-smacking food.
+                            </p>
+                        </div>
+                        <div class="cart_navigation text-center --margintop8">
+                            <a href="/" class="btn btn-danger">Return to store</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -19,4 +19,3 @@ D:\VSProject\ISTM632_Repo\Easy_Chef\Easy_Chef\obj\Release\netcoreapp2.0\Easy_Che
 D:\VSProject\ISTM632_Repo\Easy_Chef\Easy_Chef\obj\Release\netcoreapp2.0\Easy_Chef.AssemblyInfo.cs
 D:\VSProject\ISTM632_Repo\Easy_Chef\Easy_Chef\obj\Release\netcoreapp2.0\Easy_Chef.dll
 D:\VSProject\ISTM632_Repo\Easy_Chef\Easy_Chef\obj\Release\netcoreapp2.0\Easy_Chef.pdb
-D:\VSProject\ISTM632_Repo\Easy_Chef\Easy_Chef\obj\Release\netcoreapp2.0\Easy_Chef.csprojResolveAssemblyReference.cache

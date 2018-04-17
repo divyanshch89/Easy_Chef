@@ -1,0 +1,126 @@
+﻿<section class="shopping_cart_page">
+    <div class="container">
+        <div class="row --marginbottom16">
+            <div class="col-lg-12 col-md-12 --margintop16">
+                <div class="checkout-step mb-40">
+                    <ul>
+                        <li>
+                            <a href="/checkout">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">1</div>
+                                </div>
+                                <span>Shipping</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="/orderreview">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">2</div>
+                                </div>
+                                <span>Order Overview</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/payment">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">3</div>
+                                </div>
+                                <span>Payment</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/ordercomplete">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">4</div>
+                                </div>
+                                <span>Order Complete</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 mx-auto">
+                <div class="widget">
+                    <div class="section-header section-header-center text-center">
+                        <h3 class="heading-design-center-h3">
+                           Review your Order
+                        </h3>
+                    </div>
+                    <hr>
+                    <form>
+                        <table id="cart" class="table table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Recipe</th>
+                                    <th>Price</th>
+                                    <th width="10%">Quantity</th>
+                                    <th class="text-center">Subtotal</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-th="Product">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h4 class="nomargin">Product 1</h4>
+                                                <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td data-th="Price">$1.99</td>
+                                    <td data-th="Quantity">
+                                        <input type="number" class="form-control text-center" value="1">
+                                    </td>
+                                    <td data-th="Subtotal" class="text-center">1.99</td>
+                                    <td class="actions" data-th="">
+                                        <button class="btn btn-danger btn-block"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-th="Product">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h4 class="nomargin">Product 1</h4>
+                                                <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td data-th="Price">$1.99</td>
+                                    <td data-th="Quantity">
+                                        <input type="number" class="form-control text-center" value="1">
+                                    </td>
+                                    <td data-th="Subtotal" class="text-center">1.99</td>
+                                    <td class="actions" data-th="">
+                                        <button class="btn btn-danger btn-block"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr style="border-bottom:1px solid #dee2e6;">
+                                    <td colspan="2"></td>
+                                    <td style="text-align:center;"><strong>Total</strong></td>
+                                    <td class="text-center"><strong>$1.99</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="/checkout" class="btn btn-success"><i class="fa fa-angle-left"></i> Back</a></td>
+                                    <td class="d-none"></td>
+                                    <td class="d-none text-center"><strong>Total $1.99</strong></td>
+                                    <td class="hide-sm"></td>
+                                    <td class="hide-sm"></td>
+                                    <td colspan="2"><a href="/payment" class="btn btn-success btn-block">Next <i class="fa fa-angle-right"></i></a></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
