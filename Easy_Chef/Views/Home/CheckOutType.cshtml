@@ -1,0 +1,83 @@
+﻿@*<link rel="stylesheet" href="https://askbootstrap.com/preview/osahan-fashion/css/style.css" />*@
+<section class="shopping_cart_page">
+    <div class="container">
+        <div class="row --marginbottom16">
+            <div class="col-lg-12 col-md-12 --margintop16">
+                <div class="checkout-step mb-40">
+                    <ul>
+                        <li class="active">
+                            <a href="#">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">1</div>
+                                </div>
+                                <span>Checkout Type</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">2</div>
+                                </div>
+                                <span>Shipping</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">3</div>
+                                </div>
+                                <span>Payment</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="step">
+                                    <div class="line"></div>
+                                    <div class="circle">4</div>
+                                </div>
+                                <span>Order Complete</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 mx-auto">
+                <div class="widget">
+                    <div class="section-header section-header-center text-center">
+                        <h3 class="heading-design-center-h3">
+                            Please choose checkout Type
+                        </h3>
+                    </div>
+                    <hr>
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="text-center">
+                                    <a href="/checkout" class="btn btn-primary" style="width:236px;height:40px;">Continue as guest</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <div class="fb-login-button hide" onlogin="EasyChef.Facebook.init()" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(function () {
+        if (EasyChef.Utility.readCookie(EasyChef.globalVars.authenticationCookieName) != null) {
+            window.location.href="/checkout";
+        }
+    });
+</script>
