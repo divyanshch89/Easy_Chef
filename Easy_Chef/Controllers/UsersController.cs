@@ -55,7 +55,7 @@ namespace Easy_Chef.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.User.Select(x => new { x.UserFbId, x.Role.RoleName }).SingleOrDefaultAsync(m => m.UserFbId == fbId);
+            var user = await _context.User.Select(x => new { x.UserFbId, x.Role.RoleName, x.UserFname, x.UserLname, x.UserEmail, x.UserAddress, x.UserPhone, x.Payment }).SingleOrDefaultAsync(m => m.UserFbId == fbId);
 
             if (user == null)
             {

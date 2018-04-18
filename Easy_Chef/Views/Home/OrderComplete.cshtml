@@ -6,23 +6,32 @@
                 <div class="checkout-step mb-40">
                     <ul>
                         <li>
-                            <a href="/checkout">
+                            <a href="#">
                                 <div class="step">
                                     <div class="line"></div>
                                     <div class="circle">1</div>
                                 </div>
-                                <span>Shipping</span>
+                                <span>Checkout Type</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/orderreview">
+                            <a href="/checkout">
                                 <div class="step">
                                     <div class="line"></div>
                                     <div class="circle">2</div>
                                 </div>
-                                <span>Order Overview</span>
+                                <span>Shipping</span>
                             </a>
                         </li>
+                        @*<li>
+            <a href="/orderreview">
+                <div class="step">
+                    <div class="line"></div>
+                    <div class="circle">2</div>
+                </div>
+                <span>Order Overview</span>
+            </a>
+        </li>*@
                         <li>
                             <a href="/payment">
                                 <div class="step">
@@ -54,11 +63,11 @@
                                 <span class="text-muted">Order number: </span><span>@Helper.GenerateOrderNumber()</span>
                             </div>
                             <p>
-                                Alright Chef, You're awesome recipe box is on the way. Brace yourself for lip-smacking food.
+                                Alright Chef, You're awesome recipe box is on the way. Get excited for lip-smacking food.
                             </p>
                         </div>
                         <div class="cart_navigation text-center --margintop8">
-                            <a href="/" class="btn btn-danger">Return to store</a>
+                            <a href="/" class="btn btn-danger">Return to Home page</a>
                         </div>
                     </div>
                 </div>
@@ -66,3 +75,9 @@
         </div>
     </div>
 </section>
+<script>
+    $(function () {
+        EasyChef.Utility.createCookie("Cart", "[]", 30);
+        EasyChef.Cart.updateCartBadgeCount();
+    });
+</script>

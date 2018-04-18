@@ -8,12 +8,13 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
     })();
 </script>
+<input type="hidden" id="recipeprice" value="@Html.DisplayFor(model => model.Price)" />
 <div class="container recipedetail --margintop16">
     <article class="l--max850">
         <header>
             <div class="row">
                 <div class="col-md-10">
-                    <h1 class="h--serif size-lg">@Html.DisplayFor(model => model.RecipeName)</h1>
+                    <h1 class="h--serif size-lg recipename">@Html.DisplayFor(model => model.RecipeName)</h1>
                     <h2 class="h--serif --marginbottom16 --margintop8 shortdescription">@Html.DisplayFor(model => model.ShortDescription)</h2>
                 </div>
                 <div class="col-md-2 text-center" id="addtocart">

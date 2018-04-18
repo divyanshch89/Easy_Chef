@@ -5,24 +5,33 @@
             <div class="col-lg-12 col-md-12 --margintop16">
                 <div class="checkout-step mb-40">
                     <ul>
-                        <li class="active">
-                            <a href="/checkout">
+                        <li>
+                            <a href="#">
                                 <div class="step">
                                     <div class="line"></div>
                                     <div class="circle">1</div>
                                 </div>
-                                <span>Shipping</span>
+                                <span>Checkout Type</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/orderreview">
+                        <li class="active">
+                            <a href="/checkout">
                                 <div class="step">
                                     <div class="line"></div>
                                     <div class="circle">2</div>
                                 </div>
-                                <span>Order Overview</span>
+                                <span>Shipping</span>
                             </a>
                         </li>
+                        @*<li>
+                                <a href="/orderreview">
+                                    <div class="step">
+                                        <div class="line"></div>
+                                        <div class="circle">2</div>
+                                    </div>
+                                    <span>Order Overview</span>
+                                </a>
+                            </li>*@
                         <li>
                             <a href="/payment">
                                 <div class="step">
@@ -55,18 +64,18 @@
                         <h3 class="sub-heading">Shipping Address</h3>
                     </div>
                     <hr>
-                    <form>
+                    <form id="shippingform">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">First Name <span class="required">*</span></label>
-                                    <input class="form-control border-form-control" value="" placeholder="Enter your name" type="text">
+                                    <input class="form-control border-form-control fname" name="fname" placeholder="Enter your name" type="text" />
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">Last Name <span class="required">*</span></label>
-                                    <input class="form-control border-form-control" value="" placeholder="Enter your last name" type="text">
+                                    <input class="form-control border-form-control lname" name="lname" placeholder="Enter your last name" type="text"/>
                                 </div>
                             </div>
                         </div>
@@ -74,13 +83,13 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">Phone <span class="required">*</span></label>
-                                    <input class="form-control border-form-control" value="" placeholder="123 456 7890" type="number">
+                                    <input class="form-control border-form-control phone" name="phone" placeholder="Enter phone number" type="text" required />
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="control-label">Email Address <span class="required">*</span></label>
-                                    <input class="form-control border-form-control " value="" placeholder="Enter your email address" disabled="" type="email">
+                                    <label class="control-label">Email <span class="required">*</span></label>
+                                    <input class="form-control border-form-control email" name="email" placeholder="Enter your email address" type="email" required />
                                 </div>
                             </div>
                         </div>
@@ -89,8 +98,12 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label class="control-label">Shipping Address <span class="required">*</span></label>
-                                    <textarea class="form-control border-form-control" placeholder="Enter street address"></textarea>
+                                    <textarea class="form-control border-form-control address" name="address" placeholder="Enter street address" required></textarea>
                                     @*<small class="text-danger">Please provide the number and street.</small>*@
+                                    <div class="form-check --margintop8 hide">
+                                        <input type="checkbox" class="form-check-input" id="saveinfo">
+                                        <label class="form-check-label h--serif" for="saveinfo">Save information for quick checkout</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +112,8 @@
                             <div class="col-sm-12">
                                 <div class="d-flex">
                                     <a href="/cart" class="btn btn-success"><i class="fa fa-angle-left"></i> Back</a>
-                                    <a href="/orderreview" class="btn btn-success ml-auto ">Next <i class="fa fa-angle-right"></i></a>
+                                    @*<input class="submit btn btn-success ml-auto" type="submit" onclick="EasyChef.Checkout.performUserDataUpdate();" value="Next" />*@
+                                    <a href="#" onclick="EasyChef.Checkout.performUserDataUpdate();" class="btn btn-success ml-auto">Next <i class="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
 
@@ -110,3 +124,29 @@
         </div>
     </div>
 </section>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    $(function () {
+        $("input[name='phone']").keyup(function () {
+            $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d)+$/, "($1)$2-$3"));
+        });
+        $("#shippingform").validate({
+            rules: {
+                fname: "required",
+                lname: "required",
+                email: "required",
+                address: "required",
+                phone:"required"
+
+            },
+            
+        });
+        if (EasyChef.Utility.readCookie(EasyChef.globalVars.authenticationCookieName) != null) {
+            $(".form-check").removeClass("hide");
+            EasyChef.Checkout.fetchUserData();
+        }
+    });
+</script>

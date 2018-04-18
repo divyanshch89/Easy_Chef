@@ -52,6 +52,11 @@ namespace Easy_Chef.Controllers
             return View();
         }
 
+        public IActionResult CheckOutType()
+        {
+            return View();
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

@@ -1,5 +1,5 @@
 ﻿<div class="container --margintop16">
-    <table id="cart" class="table table-hover table-condensed">
+    <table id="cart" class="table table-hover table-condensed hide">
         <thead>
             <tr>
                 <th>Recipe</th>
@@ -9,59 +9,28 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td data-th="Product">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h4 class="nomargin">Product 1</h4>
-                            <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </div>
-                </td>
-                <td data-th="Price">$1.99</td>
-                <td data-th="Quantity">
-                    <input type="number" class="form-control text-center" value="1">
-                </td>
-                <td data-th="Subtotal" class="text-center">1.99</td>
-                <td class="actions" data-th="">
-                    <button class="btn btn-danger btn-block"><i class="fa fa-trash"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td data-th="Product">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h4 class="nomargin">Product 1</h4>
-                            <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </div>
-                </td>
-                <td data-th="Price">$1.99</td>
-                <td data-th="Quantity">
-                    <input type="number" class="form-control text-center" value="1">
-                </td>
-                <td data-th="Subtotal" class="text-center">1.99</td>
-                <td class="actions" data-th="">
-                    <button class="btn btn-danger btn-block"><i class="fa fa-trash"></i></button>
-                </td>
-            </tr>
-        </tbody>
+        <tbody></tbody>
         <tfoot>
             <tr style="border-bottom:1px solid #dee2e6;">
                 <td colspan="2"></td>
                 <td style="text-align:center;"><strong>Total</strong></td>
-                <td class="text-center"><strong>$1.99</strong></td>
+                <td class="text-center"><strong class="carttotal">$1.99</strong></td>
                 <td></td>
             </tr>
             <tr>
                 <td><a href="#" onclick="window.history.back()" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                 <td class="d-none"></td>
-                <td class="d-none text-center"><strong>Total $1.99</strong></td>
+                <td class="d-none text-center"><strong class="carttotal">Total $1.99</strong></td>
                 <td class="hide-sm"></td>
                 <td class="hide-sm"></td>
-                <td colspan="2"><a href="/checkout" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                <td colspan="2"><a href="/checkouttype" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
             </tr>
         </tfoot>
     </table>
 </div>
+<script>
+    $(function () {
+        if (EasyChef.Utility.readCookie("Cart") != null)
+            EasyChef.Cart.generateCartView();
+    });
+</script>

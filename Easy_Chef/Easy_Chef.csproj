@@ -6,9 +6,17 @@
 
   <ItemGroup>
     <Compile Remove="Views\Recipes1\**" />
+    <Compile Remove="wwwroot\lib\bootstrap\**" />
+    <Compile Remove="wwwroot\lib\jquery\**" />
     <Content Remove="Views\Recipes1\**" />
+    <Content Remove="wwwroot\lib\bootstrap\**" />
+    <Content Remove="wwwroot\lib\jquery\**" />
     <EmbeddedResource Remove="Views\Recipes1\**" />
+    <EmbeddedResource Remove="wwwroot\lib\bootstrap\**" />
+    <EmbeddedResource Remove="wwwroot\lib\jquery\**" />
     <None Remove="Views\Recipes1\**" />
+    <None Remove="wwwroot\lib\bootstrap\**" />
+    <None Remove="wwwroot\lib\jquery\**" />
   </ItemGroup>
 
   <ItemGroup>

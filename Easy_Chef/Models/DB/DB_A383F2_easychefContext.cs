@@ -162,6 +162,10 @@ namespace Easy_Chef.Models.DB
                     .HasColumnName("User_FB_Id")
                     .HasMaxLength(30);
 
+                entity.Property(e => e.UserPhone)
+                    .HasColumnName("User_Phone")
+                    .HasMaxLength(20);
+
 
                 entity.Property(e => e.UserFname)
                     .HasColumnName("User_FName")

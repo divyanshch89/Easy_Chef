@@ -8,7 +8,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     margin: 0;
     padding: 0;
     border: 0;
-   
 }
 
 body {
@@ -534,29 +533,34 @@ textarea.border-form-control {
                 position: relative;
             }
 
-                .checkout-step ul li .step .circle {
-                    background: #007bff none repeat scroll 0 0;
-                    border-radius: 50%;
-                    color: #ffffff;
-                    display: inline-block;
-                    font-size: 16px;
-                    font-weight: 500;
-                    height: 32px;
-                    left: 50%;
-                    padding: 5px 11px;
-                    position: absolute;
-                    text-align: left;
-                    transform: translateX(-50%);
-                    width: 32px;
-                }
+            .checkout-step ul li a {
+                text-decoration: none;
+                cursor: default;
+            }
 
-                .checkout-step ul li .step .line {
-                    background: #007bff none repeat scroll 0 0;
-                    float: left;
-                    height: 7px;
-                    margin: 12px -1px 12px 0;
-                    width: 155px;
-                }
+            .checkout-step ul li .step .circle {
+                background: #007bff none repeat scroll 0 0;
+                border-radius: 50%;
+                color: #ffffff;
+                display: inline-block;
+                font-size: 16px;
+                font-weight: 500;
+                height: 32px;
+                left: 50%;
+                padding: 5px 11px;
+                position: absolute;
+                text-align: left;
+                transform: translateX(-50%);
+                width: 32px;
+            }
+
+            .checkout-step ul li .step .line {
+                background: #007bff none repeat scroll 0 0;
+                float: left;
+                height: 7px;
+                margin: 12px -1px 12px 0;
+                width: 155px;
+            }
 
             .checkout-step ul li:first-child .step .line {
                 border-radius: 3px 0 0 3px;
@@ -595,7 +599,7 @@ textarea.border-form-control {
             }
 
     .checkout-step .active span {
-        color: #dc3545;
+        color: #d01b1b;
     }
 
     .checkout-step li.active + li .circle,
@@ -806,4 +810,8 @@ However, delay the fade out process for 2.5 seconds */
         bottom: 0;
         opacity: 0;
     }
+}
+/*error messages*/
+label.error {
+    color: #d01b1b;
 }
