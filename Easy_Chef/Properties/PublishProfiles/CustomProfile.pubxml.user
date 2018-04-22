@@ -17,28 +17,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/26/2018 10:47:53</publishTime>
     </File>
     <File Include="bundleconfig.json">
-      <publishTime>04/21/2018 20:02:27</publishTime>
+      <publishTime>04/22/2018 11:11:44</publishTime>
     </File>
     <File Include="dotnet-aspnet-codegenerator-design.dll">
       <publishTime>02/20/2018 20:41:26</publishTime>
     </File>
     <File Include="Easy_Chef.deps.json">
-      <publishTime>04/21/2018 20:16:13</publishTime>
+      <publishTime>04/22/2018 11:14:05</publishTime>
     </File>
     <File Include="Easy_Chef.dll">
-      <publishTime>04/21/2018 20:16:09</publishTime>
+      <publishTime>04/22/2018 11:14:01</publishTime>
     </File>
     <File Include="Easy_Chef.pdb">
-      <publishTime>04/21/2018 20:16:09</publishTime>
+      <publishTime>04/22/2018 11:14:01</publishTime>
     </File>
     <File Include="Easy_Chef.PrecompiledViews.dll">
-      <publishTime>04/21/2018 20:16:13</publishTime>
+      <publishTime>04/22/2018 11:14:04</publishTime>
     </File>
     <File Include="Easy_Chef.PrecompiledViews.pdb">
-      <publishTime>04/21/2018 20:16:13</publishTime>
+      <publishTime>04/22/2018 11:14:04</publishTime>
     </File>
     <File Include="Easy_Chef.runtimeconfig.json">
-      <publishTime>04/21/2018 20:16:13</publishTime>
+      <publishTime>04/22/2018 11:14:05</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.Razor.Extensions.dll">
       <publishTime>02/20/2018 20:41:26</publishTime>
@@ -140,7 +140,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/12/2018 12:21:12</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>04/21/2018 20:16:13</publishTime>
+      <publishTime>04/22/2018 11:14:05</publishTime>
     </File>
     <File Include="wwwroot/css/Common.css">
       <publishTime>04/02/2018 21:29:15</publishTime>
@@ -152,13 +152,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/16/2018 23:49:41</publishTime>
     </File>
     <File Include="wwwroot/css/site.min.css">
-      <publishTime>04/21/2018 20:16:03</publishTime>
+      <publishTime>04/22/2018 11:06:15</publishTime>
     </File>
     <File Include="wwwroot/css/sticky-footer.css">
       <publishTime>04/04/2018 20:59:56</publishTime>
     </File>
     <File Include="wwwroot/css/styles.css">
-      <publishTime>04/21/2018 19:58:03</publishTime>
+      <publishTime>04/22/2018 01:23:11</publishTime>
     </File>
     <File Include="wwwroot/favicon.ico">
       <publishTime>03/22/2018 18:36:35</publishTime>
@@ -271,14 +271,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="wwwroot/images/recipe/archive/3_archive_1.jpg">
       <publishTime>04/02/2018 21:29:16</publishTime>
     </File>
+    <File Include="wwwroot/images/sad_chef.jpg">
+      <publishTime>04/22/2018 01:57:13</publishTime>
+    </File>
+    <File Include="wwwroot/images/Select_Menu.jpg">
+      <publishTime>04/22/2018 01:07:29</publishTime>
+    </File>
     <File Include="wwwroot/images/Select_Recipe.gif">
       <publishTime>03/23/2018 14:10:28</publishTime>
     </File>
     <File Include="wwwroot/js/main.js">
-      <publishTime>04/20/2018 10:55:27</publishTime>
+      <publishTime>04/22/2018 02:14:43</publishTime>
     </File>
     <File Include="wwwroot/js/main.min.js">
-      <publishTime>04/21/2018 20:16:03</publishTime>
+      <publishTime>04/22/2018 11:13:53</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/.bower.json">
       <publishTime>03/22/2018 18:36:35</publishTime>
