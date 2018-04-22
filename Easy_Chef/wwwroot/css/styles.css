@@ -22,7 +22,7 @@ body {
     background-color: #fff;
     -webkit-font-feature-settings: "liga", "dlig" 0;
     font-feature-settings: "liga", "dlig" 0;
-    font-smoothing: antialiased;
+    /*font-smoothing: antialiased;*/
 }
 
 
@@ -40,18 +40,6 @@ strong, b {
     opacity: 0.6 !important;
 }
 
-/**, *:after, *:before {
-    box-sizing: inherit;
-    text-rendering: optimizeLegibility;
-    font-feature-settings: "kern";
-    font-variant-ligatures: common-ligatures;
-}*/
-
-/*.content ::after {
-    display: block;
-    clear: both;
-    content: "";
-}*/
 
 a {
     text-decoration: none;
@@ -616,6 +604,10 @@ textarea.border-form-control {
     .checkout-step li.active + li + li + li span {
         color: #868e96;
     }
+.saveinfolabel{
+    color:#d01b1b;
+    font-weight:300;
+}
 /* Widget */
 .widget {
     background-color: #fff;
@@ -756,9 +748,7 @@ textarea.border-form-control {
 
     /* Show the snackbar when clicking on a button (class added with JavaScript) */
     #snackbar.show {
-        visibility: visible; /* Show the snackbar */
-        /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
-However, delay the fade out process for 2.5 seconds */
+        visibility: visible;
         -webkit-animation: fadein 0.5s, fadeout 0.5s 4.5s;
         animation: fadein 0.5s, fadeout 0.5s 4.5s;
     }

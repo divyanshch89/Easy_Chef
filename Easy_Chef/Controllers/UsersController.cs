@@ -55,7 +55,7 @@ namespace Easy_Chef.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.User.Select(x => new { x.UserFbId, x.Role.RoleName, x.UserFname, x.UserLname, x.UserEmail, x.UserAddress, x.UserPhone, x.Payment }).SingleOrDefaultAsync(m => m.UserFbId == fbId);
+            var user = await _context.User.Select(x => new { x.UserFbId, x.Role.RoleName, x.UserId, x.UserFname, x.UserLname, x.UserEmail, x.UserAddress, x.UserPhone, x.PaymentId, x.Payment }).SingleOrDefaultAsync(m => m.UserFbId == fbId);
 
             if (user == null)
             {
@@ -78,8 +78,14 @@ namespace Easy_Chef.Controllers
             {
                 return BadRequest();
             }
+            //_context.Entry(user.Payment).State = EntityState.Modified;
+            //var paymentToUpdate = _context.Payment.SingleOrDefault(p => p.PaymentId == user.PaymentId);
+            //if (paymentToUpdate != null)
+            //   _context.Payment.Update(paymentToUpdate);
+            _context.User.Update(user);
+            //_context.Payment.Update(user.Payment);
 
-            _context.Entry(user).State = EntityState.Modified;
+            // _context.Entry(user).State = EntityState.Modified;
 
             try
             {
@@ -108,11 +114,10 @@ namespace Easy_Chef.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             _context.User.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.UserId }, user);
+            return Ok(new { id = user.UserId });
         }
 
         // DELETE: api/Users/5

@@ -1,11 +1,22 @@
 ﻿
 @{
-    ViewData["Title"] = "AppError";
+    ViewData["Title"] = "AppError-500";
     Layout = "~/Views/Shared/_Layout_no_nav.cshtml";
 }
 
 <div class="container --margintop16">
-    <h2>App error</h2>
-    <h2 class="text-danger --margintop16">Oh no, Something is not right here. Please check back later.</h2>
+    <div class="row">
+        <div class="alert alert-danger mx-auto" role="alert">
+            Chef Chifu says - "Oh no, Something is not right with our kitchen setup. But don't worry, our technical chefs are trying hard to fix it for you. Please check back later."
+        </div>
+    </div>
+    <div class="row --marginbottom16">
+        <img src="~/images/sad_chef.jpg" style="height:300px;" class="img-fluid mx-auto" alt="Sad Chef" />
+    </div>
+    <div class="row --marginbottom16">
+        <div class="mx-auto">
+            <a class="btn btn-warning" href="/">Ok, Take me out of here!</a>
+        </div>
+    </div>
 </div>
 

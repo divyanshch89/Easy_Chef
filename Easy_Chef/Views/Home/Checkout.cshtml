@@ -1,4 +1,4 @@
-﻿
+﻿@model Easy_Chef.Models.DB.User
 <section class="shopping_cart_page">
     <div class="container">
         <div class="row --marginbottom16">
@@ -60,22 +60,22 @@
                             Please fill up your Shipping details
                         </h3>
                     </div>
-                    <div class="heading-part">
+                    @*<div class="heading-part">
                         <h3 class="sub-heading">Shipping Address</h3>
-                    </div>
+                    </div>*@
                     <hr>
                     <form id="shippingform">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">First Name <span class="required">*</span></label>
-                                    <input class="form-control border-form-control fname" name="fname" placeholder="Enter your name" type="text" />
+                                    <input class="form-control border-form-control fname" name="fname" placeholder="Enter your name" type="text" value="@Html.DisplayFor(modelItem => modelItem.UserFname)"/>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">Last Name <span class="required">*</span></label>
-                                    <input class="form-control border-form-control lname" name="lname" placeholder="Enter your last name" type="text"/>
+                                    <input class="form-control border-form-control lname" name="lname" placeholder="Enter your last name" type="text" value="@Html.DisplayFor(modelItem => modelItem.UserLname)"/>
                                 </div>
                             </div>
                         </div>
@@ -83,13 +83,13 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">Phone <span class="required">*</span></label>
-                                    <input class="form-control border-form-control phone" name="phone" placeholder="Enter phone number" type="text" required />
+                                    <input class="form-control border-form-control phone" name="phone" maxlength="13" placeholder="Enter phone number" type="text" required value="@Html.DisplayFor(modelItem => modelItem.UserPhone)" />
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">Email <span class="required">*</span></label>
-                                    <input class="form-control border-form-control email" name="email" placeholder="Enter your email address" type="email" required />
+                                    <input class="form-control border-form-control email" name="email" placeholder="Enter your email address" type="email" required value="@Html.DisplayFor(modelItem => modelItem.UserEmail)" />
                                 </div>
                             </div>
                         </div>
@@ -98,11 +98,11 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label class="control-label">Shipping Address <span class="required">*</span></label>
-                                    <textarea class="form-control border-form-control address" name="address" placeholder="Enter street address" required></textarea>
+                                    <textarea class="form-control border-form-control address" name="address" placeholder="Enter street address" required>@Html.DisplayFor(modelItem => modelItem.UserAddress)</textarea>
                                     @*<small class="text-danger">Please provide the number and street.</small>*@
                                     <div class="form-check --margintop8 hide">
                                         <input type="checkbox" class="form-check-input" id="saveinfo">
-                                        <label class="form-check-label h--serif" for="saveinfo">Save information for quick checkout</label>
+                                        <label class="form-check-label h--serif saveinfolabel" for="saveinfo">Save information for quick checkout</label>
                                     </div>
                                 </div>
                             </div>

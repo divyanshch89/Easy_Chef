@@ -7,15 +7,19 @@ using Microsoft.AspNetCore.Mvc;
 using Easy_Chef.Models;
 using Easy_Chef.Models.DB;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json.Linq;
 
 namespace Easy_Chef.Controllers
 {
     public class HomeController : Controller
     {
         private readonly DB_A383F2_easychefContext _context;
-        public HomeController(DB_A383F2_easychefContext context)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public HomeController(DB_A383F2_easychefContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
         public IActionResult Index()
         {
@@ -37,7 +41,16 @@ namespace Easy_Chef.Controllers
 
         public IActionResult Checkout()
         {
-            return View();
+            var model = new User();
+            if (IsAuthenticationCookieExist())
+            {
+                var cookieData = JObject.Parse(_httpContextAccessor.HttpContext.Request.Cookies["authentication"]).ToObject<User>(); ;
+                if (cookieData.UserId > 0)
+                {
+                    model = _context.User.SingleOrDefault(u => u.UserId == cookieData.UserId);
+                }
+            }
+            return View(model);
         }
         public IActionResult OrderReview()
         {
@@ -79,6 +92,11 @@ namespace Easy_Chef.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private bool IsAuthenticationCookieExist()
+        {
+            return _httpContextAccessor.HttpContext.Request.Cookies["authentication"] != null;
         }
     }
 }

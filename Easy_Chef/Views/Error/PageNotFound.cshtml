@@ -1,11 +1,22 @@
 ﻿
 @{
-    ViewData["Title"] = "PageNotFound";
+    ViewData["Title"] = "PageNotFound-404";
     Layout = "~/Views/Shared/_Layout_no_nav.cshtml";
 }
 
 <div class="container --margintop16">
-    <h2>Page not found</h2>
-    <h2 class="text-danger --margintop16">Oh no, Something is not right here. Please check back later.</h2>
+    <div class="row">
+        <div class="alert alert-danger mx-auto" role="alert">
+            Chef Chifu says - "Oh no, The recipe you are looking for is not available. Please check back later."
+        </div>
+    </div>
+    <div class="row --marginbottom16">
+        <img src="~/images/sad_chef.jpg" style="height:300px;" class="img-fluid mx-auto" alt="Sad Chef" />
+    </div>
+    <div class="row --marginbottom16">
+        <div class="mx-auto">
+            <a class="btn btn-warning" href="/">Ok, Take me out of here!</a>
+        </div>
+    </div>
 </div>
 

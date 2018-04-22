@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="ShortDescription" class="control-label">Short description</label>
-                    <input asp-for="ShortDescription" maxlength="500" data-val-length-max="500" autofocus="autofocus" placeholder="Enter short description for recipe archive page" data-val="true" data-val-required="This is required field" class="form-control" />
+                    <textarea asp-for="ShortDescription" rows="3" maxlength="500" data-val-length-max="500" autofocus="autofocus" placeholder="Enter short description for recipe archive page" data-val="true" data-val-required="This is required field" class="form-control" ></textarea>
                     <span asp-validation-for="ShortDescription" class="text-danger"></span>
                 </div>
                 <div class="form-group">

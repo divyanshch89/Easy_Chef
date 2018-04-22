@@ -17,7 +17,7 @@ var EasyChef = EasyChef || {
         cartEmptyMessage: "Oh no, Cart is Empty!",
         orderSubmitMessage: "This will submit the order. Click OK to continue"
     },
-    shifuMessages: {
+    ChifuMessages: {
         cartdictionary: ["Well, that's a smart choice", "You're one in mellon", "I prepared this meal specially for you"],
         greetingDictionary: ["Howdy, people of Texas", "Rise and shine", "You forgot your apron Chef!", "Let's make something awesome today"]
     },
@@ -25,57 +25,52 @@ var EasyChef = EasyChef || {
         //position the footer as per screen height
         EasyChef.Utility.positionFooter();
         EasyChef.Cart.updateCartBadgeCount();
-        //EasyChef.Utility.showSnackBar();
-        //init fb authentication process
-        // EasyChef.Facebook.init();
     },
     Checkout: {
         fetchUserData: function () {
             //check if user exist
             //if yes: fetch data and load in the view
             var authenticationData = JSON.parse(EasyChef.Utility.readCookie(EasyChef.globalVars.authenticationCookieName));
-            if (authenticationData.UserExist) {
-                //data exist.load into UI
-                console.log("Render user address details");
-                EasyChef.Checkout.showUserDetails(authenticationData);
+            if (authenticationData != null) {
+                if (authenticationData.UserExist) {
+                    //data exist.load into UI
+                    console.log("Render user address details");
+                    EasyChef.Checkout.showUserDetails(authenticationData);
+                }
             }
-            else {
-                EasyChef.Utility.makeAjax(this.format(EasyChef.globalVars.getUserDataUrl, authenticationData[0].fbid), "GET", "", function (success) {
-                    //handle success
-                    //user exist
-                    console.log(success);
-                    EasyChef.Utility.createUserExistCookie(true);
-                }, function (err) {
-                    //handle error
-                    //set cookie that user exist
-                    EasyChef.Utility.createUserExistCookie(false);
-                    console.log(err);
-                });
-            }
-
         },
         showUserDetails: function (data) {
-            $(".fname").val(data.first_name);
-            $(".lname").val(data.last_name);
-            $(".phone").val(data.UserPhone);
-            $(".address").val(data.UserAddress);
-            $(".email").val(data.UserEmail);
-            if (data.DBSyncRequired)
-                $('#saveinfo').prop('checked', true);
+            //  $(".fname").val(data.first_name);
+            //$(".lname").val(data.last_name);
+            // $(".phone").val(data.UserPhone);
+            // $(".address").val(data.UserAddress);
+            // $(".email").val(data.UserEmail);
+            //if (data.DBSyncRequired)
+            //    $('#saveinfo').prop('checked', true);
         },
         performUserDataUpdate: function () {
             if ($("#shippingform").valid()) {
-                if ($('#saveinfo').is(":checked")) {
-                    //update authentication cookie
-                    var data = JSON.parse(EasyChef.Utility.readCookie(EasyChef.globalVars.authenticationCookieName));
-                    data.first_name = $(".fname").val();
-                    data.last_name = $(".lname").val();
-                    data.UserPhone = $(".phone").val();
-                    data.UserAddress = $(".address").val();
-                    data.UserEmail = $(".email").val();
-                    data.DBSyncRequired = true;
+                //update authentication cookie
+                var data = JSON.parse(EasyChef.Utility.readCookie(EasyChef.globalVars.authenticationCookieName));
+                if (data != null) {
+                    if ($('#saveinfo').is(":checked")) {
+
+                        data.first_name = $(".fname").val();
+                        data.last_name = $(".lname").val();
+                        data.UserPhone = $(".phone").val();
+                        data.UserAddress = $(".address").val();
+                        data.UserEmail = $(".email").val();
+                        data.DBSyncRequired = true;
+
+                        //mark data for update
+                        //TODO: check the flow again
+                    }
+                    else {
+                        if (data != null)
+                            data.DBSyncRequired = false;
+                    }
+
                     EasyChef.Utility.createCookie(EasyChef.globalVars.authenticationCookieName, JSON.stringify(data), 7);
-                    //mark data for update
                 }
                 window.location.href = "/payment";
             }
@@ -97,11 +92,56 @@ var EasyChef = EasyChef || {
             if ($("#paymentform").valid()) {
                 if (confirm(EasyChef.globalVars.orderSubmitMessage)) {
                     //check if authentication exist
-                    //check if db update required
-                    //check if user exist
-                    //Yes: update the user and payment info
-                    //No: Create new user and update payment info
-                    window.location.href = "/ordercomplete";
+                    var userData = JSON.parse(EasyChef.Utility.readCookie(EasyChef.globalVars.authenticationCookieName));
+                    if (userData != null) {
+                        //check if db update required
+                        if (userData.DBSyncRequired == true) {
+                            //check if user exist
+                            var paymentObject = new Object();
+                            paymentObject.type = "CC";
+                            paymentObject.cardNumber = $(".cardnumber").val();
+                            paymentObject.expirationDate = $(".cardexpiration").val();
+                            userData.PaymentInfo = paymentObject;
+                            if (userData.UserId != null) {
+                                //Yes: update the user and payment info
+                                var userObj = EasyChef.Utility.createUserObject(userData, true);
+                                EasyChef.Utility.makeAjax(EasyChef.Utility.format(EasyChef.globalVars.getUserDataUrl, userObj.UserId),
+                                    "PUT", JSON.stringify(userObj), function (success) {
+                                        console.log("User data successfully updated to db");
+                                        EasyChef.Utility.createCookie(EasyChef.globalVars.authenticationCookieName, JSON.stringify(userData), 7);
+                                        window.location.href = "/ordercomplete";
+                                    }, function (err) {
+                                        console.log("Error in updating user data");
+                                        window.location.href = "/error/500";
+                                    });
+                            }
+                            else {
+                                //No: Create new user and update payment info
+                                var userObj = EasyChef.Utility.createUserObject(userData, false);
+                                EasyChef.Utility.makeAjax(EasyChef.globalVars.createNewUserUrl,
+                                    "POST", JSON.stringify(userObj), function (success) {
+                                        console.log("User succesfully created");
+                                        userData.UserExist = true;
+                                        userData.DBSyncRequired = false;
+                                        userData.UserId = success.id;
+                                        EasyChef.Utility.createCookie(EasyChef.globalVars.authenticationCookieName, JSON.stringify(userData), 7);
+                                        window.location.href = "/ordercomplete";
+                                    }, function (err) {
+                                        console.log("Error in adding user data" + err);
+                                        window.location.href = "/error/500?code=" + err.errorText;
+                                    });
+                            }
+                        }
+                        else {
+                            //db update not required
+                            //TODO: test the flow
+                            window.location.href = "/ordercomplete?type=updatenotrequired";
+                        }
+                    }
+                    else {
+                        //guest checkout
+                        window.location.href = "/ordercomplete?type=guest";
+                    }
                 }
             }
         }
@@ -113,7 +153,7 @@ var EasyChef = EasyChef || {
 
             this.updateCartBadgeCount();
             //generate funny message
-            EasyChef.Utility.funnyMessage(EasyChef.shifuMessages.cartdictionary);
+            EasyChef.Utility.funnyMessage(EasyChef.ChifuMessages.cartdictionary);
         },
         updateCartBadgeCount: function () {
             var cartItems = JSON.parse(EasyChef.Utility.readCookie("Cart"));
@@ -209,7 +249,8 @@ var EasyChef = EasyChef || {
         },
         bindCartEvents: function () {
             $(document).on("keyup mouseup", "#cart tbody td input[type='number']", function () {
-                $(this).parent().parent().find(".subtotal").text("$" + parseFloat($(this).val()) * parseFloat($(this).parent().parent().find(".itemprice").text().replace("$", "")));
+                var computedValue = isNaN(parseFloat($(this).val())) ? 0 : parseFloat($(this).val());
+                $(this).parent().parent().find(".subtotal").text("$" + computedValue * parseFloat($(this).parent().parent().find(".itemprice").text().replace("$", "")));
                 //update cookie data
                 var cartItems = JSON.parse(EasyChef.Utility.readCookie("Cart"));
                 var recipeName = $(this).parent().parent().find(".recipename").text();
@@ -218,7 +259,7 @@ var EasyChef = EasyChef || {
                 EasyChef.Utility.createCookie("Cart", JSON.stringify(cartItems), 30);
                 EasyChef.Cart.updateCartTotal();
             });
-            $(document).on("click", "button", function () {
+            $(document).on("click", "table button", function () {
                 var recipeName = $(this).parent().parent().find(".recipename").text();
                 if (confirm("Do you want to delete " + $(this).parent().parent().find(".recipename").text() + "?")) {
                     //delete from UI
@@ -236,7 +277,8 @@ var EasyChef = EasyChef || {
                     EasyChef.Cart.updateCartBadgeCount();
                 }
                 else {
-                    alert("Smart Choice Indeed!");
+                    // alert("Smart Choice Indeed!");
+                    EasyChef.Utility.funnyMessage(["Smart choice Chef! I bet you won't regret it."]);
                 }
                 // alert("Do you want to delete " + $(this).parent().parent().find(".recipename").text() + "?");
                 EasyChef.Cart.updateCartTotal();
@@ -258,7 +300,6 @@ var EasyChef = EasyChef || {
             FB.getLoginStatus(function (response) {
                 if (response.status === 'connected') {
                     //display user data
-
                     console.log("Logged In!")
                     EasyChef.Facebook.getFbUserData();
 
@@ -276,7 +317,6 @@ var EasyChef = EasyChef || {
                         $("#status").addClass("hide");
                     }
                 }
-                return;
             });
         },
         login: function () {
@@ -304,15 +344,14 @@ var EasyChef = EasyChef || {
 
                     //manage user authorization
                     EasyChef.Utility.checkAuthorization(response);
-                    if (EasyChef.Utility.getPageName() == "login") {
-                        $("#status").removeClass("hide");
-                        $("#userData").removeClass("hide");
-                        $(".btn-danger").removeClass("hide");
-                        document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
-                        document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> ' + response.id + '</p><p><b>Name:</b> ' + response.first_name + ' ' + response.last_name + '</p><p><b>Email:</b> ' + response.email + '</p><p><b>Gender:</b> ' + response.gender + '</p><p><b>Locale:</b> ' + response.locale + '</p><p><b>Picture:</b> <img src="' + response.picture.data.url + '"/></p><p><b>FB Profile:</b> <a target="_blank" href="' + response.link + '">click to view profile</a></p>';
-                    }
-                    if (EasyChef.Utility.getPageName() == "checkouttype")
-                        window.location.href = "/checkout?login=true";
+                    //if (EasyChef.Utility.getPageName() == "login") {
+                    //    window.location.href = '/';
+                    //    //$("#status").removeClass("hide");
+                    //    //$("#userData").removeClass("hide");
+                    //    //$(".btn-danger").removeClass("hide");
+                    //    //document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
+                    //    //document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> ' + response.id + '</p><p><b>Name:</b> ' + response.first_name + ' ' + response.last_name + '</p><p><b>Email:</b> ' + response.email + '</p><p><b>Gender:</b> ' + response.gender + '</p><p><b>Locale:</b> ' + response.locale + '</p><p><b>Picture:</b> <img src="' + response.picture.data.url + '"/></p><p><b>FB Profile:</b> <a target="_blank" href="' + response.link + '">click to view profile</a></p>';
+                    //}
                 });
         },
         logout: function () {
@@ -321,7 +360,7 @@ var EasyChef = EasyChef || {
                     FB.logout(function (response) {
                         EasyChef.Utility.manageNavAfterLogout()
                         console.log("User logged out!");
-                        return;
+                        return false;
                     });
 
                 }
@@ -330,10 +369,22 @@ var EasyChef = EasyChef || {
     },
     Utility:
     {
-        createUserExistCookie: function (value) {
-            var obj = new Object();
-            obj.userExist = value;
-            EasyChef.Utility.createCookie(EasyChef.globalVars.userCheckCookieName, JSON.stringify(obj), 5);
+        createUserObject: function (obj, userExist) {
+            var userObject = new Object();
+            if (userExist)
+                userObject.UserId = obj.UserId;
+            userObject.UserFname = obj.first_name;
+            userObject.UserLname = obj.last_name;
+            userObject.UserEmail = obj.UserEmail;
+            userObject.UserAddress = obj.UserAddress;
+            userObject.RoleId = obj.UserRole == "Admin" ? 1 : 2;
+            userObject.UserFbId = obj.fbid;
+            userObject.UserPhone = obj.UserPhone;
+            if (obj.PaymentId != null)
+                userObject.PaymentId = obj.PaymentId;
+            userObject.Payment = obj.PaymentInfo;
+
+            return userObject;
         },
         makeAjax: function (url, verb, data, successcallback, errorcallback) {
             $.ajax({
@@ -342,6 +393,10 @@ var EasyChef = EasyChef || {
                 type: verb,
                 success: function (response) {
                     successcallback(response);
+                },
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
                 },
                 error: function (err) {
                     errorcallback(err);
@@ -412,20 +467,6 @@ var EasyChef = EasyChef || {
         getPageName: function () {
             return location.pathname.split('/').slice(-1)[0].toLowerCase();
         },
-        getCurrentDate: function () {
-            var today = new Date();
-            var dd = today.getDate();
-            var mm = today.getMonth() + 1; //January is 0!
-
-            var yyyy = today.getFullYear();
-            if (dd < 10) {
-                dd = '0' + dd;
-            }
-            if (mm < 10) {
-                mm = '0' + mm;
-            }
-            return dd + '/' + mm + '/' + yyyy;
-        },
         createCookie: function (name, value, days) {
             var expires;
             if (days) {
@@ -475,21 +516,22 @@ var EasyChef = EasyChef || {
                     obj.DBSyncRequired = false;
                     if (success == "") {
                         //user not available
-                        //create user with fb response data
-                        //set obj role for cookie
-                        EasyChef.Utility.createNewUser(fbresponse);
+                        //set user role as user
                         obj.UserRole = "User";
                         obj.UserExist = false;
                     }
                     else {
-                        //user available in database
+                        //Yay!, user available in database
                         obj.UserRole = success.roleName;
                         obj.UserAddress = success.userAddress;
                         obj.UserEmail = success.userEmail;
                         obj.PaymentInfo = success.payment;
+                        obj.PaymentId = success.paymentId;
+                        obj.first_name = success.userFname;
                         obj.last_name = success.userLname;
                         obj.UserPhone = success.userPhone
                         obj.UserExist = true;
+                        obj.UserId = success.userId;
 
                     }
                     if (obj.UserRole == "Admin") {
@@ -498,6 +540,11 @@ var EasyChef = EasyChef || {
                     }
                     EasyChef.Utility.createCookie(EasyChef.globalVars.authenticationCookieName, EasyChef.Utility.createJSON(obj), 7);
                     console.log(success);
+                    if (EasyChef.Utility.getPageName() == "checkouttype")
+                        window.location.href = "/checkout";
+                    else {
+                        window.location.href = "/"
+                    }
                 }, function (err) {
                     //handle error
                     console.log(err);
@@ -517,9 +564,6 @@ var EasyChef = EasyChef || {
                 var newElem = $("<li id='adminnav' class='nav-item'><a class='nav-link' href='/admin/recipe'><span>Admin</span></a></li>");
                 $("#rightnav li:eq(1)").after(newElem);
             }
-        },
-        createNewUser: function () {
-
         },
         setNavActive: function (elem) {
             //reset all nav active
@@ -553,19 +597,15 @@ var EasyChef = EasyChef || {
             EasyChef.Facebook.init();
         },
         showSnackBar: function () {
-            // Get the snackbar DIV
-            var x = document.getElementById("snackbar");
-
-            // Add the "show" class to DIV
-            x.className = "show";
-
+            var elem = $("#snackbar");
+            elem.addClass("show");
             // After 3 seconds, remove the show class from DIV
-            setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+            setTimeout(function () { elem.removeClass("show"); }, 5000);
         },
         funnyMessage: function (items) {
             //get random message
             var item = items[Math.floor(Math.random() * items.length)];
-            item = "Chef Shifu - " + "'" + item + "'";
+            item = "Chef Chifu - " + "'" + item + "'";
             $("#snackbar").text(item);
             EasyChef.Utility.showSnackBar();
         }
