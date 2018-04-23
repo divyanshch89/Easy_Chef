@@ -179,6 +179,11 @@ a {
     padding: 3px;
     color: #fff;
 }
+
+.container {
+    padding-top: 24px;
+    padding-bottom:24px;
+}
 /*Home Page*/
 #billboard {
     position: relative;
@@ -604,9 +609,10 @@ textarea.border-form-control {
     .checkout-step li.active + li + li + li span {
         color: #868e96;
     }
-.saveinfolabel{
-    color:#d01b1b;
-    font-weight:300;
+
+.saveinfolabel {
+    color: #d01b1b;
+    font-weight: 300;
 }
 /* Widget */
 .widget {

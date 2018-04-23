@@ -27,6 +27,9 @@
     .order-done i {
         font-size: 64px;
     }
+    .aboutus img{
+        display:none;
+    }
     
 }
 
